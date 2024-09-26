@@ -18,7 +18,7 @@ Update page name
 
 ### Parameters
 
-*   `name` **[String][1]** New page name
+- `name` **[String][1]** New page name
 
 ### Examples
 
@@ -64,5 +64,4 @@ console.log(rootComponent.toHTML());
 Returns **Component**&#x20;
 
 [1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
 [2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array

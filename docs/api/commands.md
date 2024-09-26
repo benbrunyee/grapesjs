@@ -6,10 +6,10 @@ You can customize the initial state of the module from the editor initialization
 
 ```js
 const editor = grapesjs.init({
- commands: {
-   // options
- }
-})
+  commands: {
+    // options
+  },
+});
 ```
 
 Once the editor is instantiated you can use its API and listen to its events. Before using these methods, you should get the module from the instance.
@@ -24,27 +24,28 @@ commands.add(...);
 ```
 
 ## Available Events
-* `command:run` Triggered on run of any command.
+
+- `command:run` Triggered on run of any command.
 
 ```javascript
 editor.on('command:run', ({ id, result, options }) => {
- console.log('Command id', id, 'command result', result);
+  console.log('Command id', id, 'command result', result);
 });
 ```
 
-* `command:run:COMMAND\_ID` Triggered on run of a specific command.
+- `command:run:COMMAND\_ID` Triggered on run of a specific command.
 
 ```javascript
 editor.on('command:run:my-command', ({ result, options }) => { ... });
 ```
 
-* `command:run:before:COMMAND\_ID` Triggered before the command is called.
+- `command:run:before:COMMAND\_ID` Triggered before the command is called.
 
 ```javascript
 editor.on('command:run:before:my-command', ({ options }) => { ... });
 ```
 
-* `command:abort:COMMAND\_ID` Triggered when the command execution is aborted.
+- `command:abort:COMMAND\_ID` Triggered when the command execution is aborted.
 
 ```javascript
 editor.on('command:abort:my-command', ({ options }) => { ... });
@@ -57,21 +58,21 @@ editor.on('command:run:before:my-command', ({ options }) => {
 });
 ```
 
-* `command:stop` Triggered on stop of any command.
+- `command:stop` Triggered on stop of any command.
 
 ```javascript
 editor.on('command:stop', ({ id, result, options }) => {
- console.log('Command id', id, 'command result', result);
+  console.log('Command id', id, 'command result', result);
 });
 ```
 
-* `command:stop:COMMAND\_ID` Triggered on stop of a specific command.
+- `command:stop:COMMAND\_ID` Triggered on stop of a specific command.
 
 ```javascript
 editor.on('command:run:my-command', ({ result, options }) => { ... });
 ```
 
-* `command:stop:before:COMMAND\_ID` Triggered before the command is called to stop.
+- `command:stop:before:COMMAND\_ID` Triggered before the command is called to stop.
 
 ```javascript
 editor.on('command:stop:before:my-command', ({ options }) => { ... });
@@ -79,15 +80,15 @@ editor.on('command:stop:before:my-command', ({ options }) => { ... });
 
 ## Methods
 
-*   [add][2]
-*   [get][3]
-*   [getAll][4]
-*   [extend][5]
-*   [has][6]
-*   [run][7]
-*   [stop][8]
-*   [isActive][9]
-*   [getActive][10]
+- [add][2]
+- [get][3]
+- [getAll][4]
+- [extend][5]
+- [has][6]
+- [run][7]
+- [stop][8]
+- [isActive][9]
+- [getActive][10]
 
 ## add
 
@@ -95,10 +96,10 @@ Add new command to the collection
 
 ### Parameters
 
-*   `id` **[string][11]** Command's ID
-*   `command` **([Object][12] | [Function][13])** Object representing your command,
-    By passing just a function it's intended as a stateless command
-    (just like passing an object with only `run` method).
+- `id` **[string][11]** Command's ID
+- `command` **([Object][12] | [Function][13])** Object representing your command,
+  By passing just a function it's intended as a stateless command
+  (just like passing an object with only `run` method).
 
 ### Examples
 
@@ -122,7 +123,7 @@ Get command by ID
 
 ### Parameters
 
-*   `id` **[string][11]** Command's ID
+- `id` **[string][11]** Command's ID
 
 ### Examples
 
@@ -139,17 +140,17 @@ Extend the command. The command to extend should be defined as an object
 
 ### Parameters
 
-*   `id` **[string][11]** Command's ID
-*   `cmd` **CommandObject**  (optional, default `{}`)
-*   `Object` **[Object][12]** with the new command functions
+- `id` **[string][11]** Command's ID
+- `cmd` **CommandObject** (optional, default `{}`)
+- `Object` **[Object][12]** with the new command functions
 
 ### Examples
 
 ```javascript
 commands.extend('old-command', {
- someInnerFunction() {
- // ...
- }
+  someInnerFunction() {
+    // ...
+  },
 });
 ```
 
@@ -161,7 +162,7 @@ Check if command exists
 
 ### Parameters
 
-*   `id` **[string][11]** Command's ID
+- `id` **[string][11]** Command's ID
 
 Returns **[Boolean][14]**&#x20;
 
@@ -177,8 +178,8 @@ Execute the command
 
 ### Parameters
 
-*   `id` **[String][11]** Command ID
-*   `options` **[Object][12]** Options (optional, default `{}`)
+- `id` **[String][11]** Command ID
+- `options` **[Object][12]** Options (optional, default `{}`)
 
 ### Examples
 
@@ -194,8 +195,8 @@ Stop the command
 
 ### Parameters
 
-*   `id` **[String][11]** Command ID
-*   `options` **[Object][12]** Options (optional, default `{}`)
+- `id` **[String][11]** Command ID
+- `options` **[Object][12]** Options (optional, default `{}`)
 
 ### Examples
 
@@ -213,7 +214,7 @@ method it can't be registered as active
 
 ### Parameters
 
-*   `id` **[String][11]** Command id
+- `id` **[String][11]** Command id
 
 ### Examples
 
@@ -243,29 +244,16 @@ console.log(commands.getActive());
 Returns **[Object][12]**&#x20;
 
 [1]: https://github.com/GrapesJS/grapesjs/blob/master/src/commands/config/config.ts
-
 [2]: #add
-
 [3]: #get
-
 [4]: #getall
-
 [5]: #extend
-
 [6]: #has
-
 [7]: #run
-
 [8]: #stop
-
 [9]: #isactive
-
 [10]: #getactive
-
 [11]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
 [12]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-
 [13]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
-
 [14]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean

@@ -2,12 +2,10 @@
 
 ## State
 
-
-
 ### Properties
 
-*   `name` **[String][1]** State name, eg. `hover`, `nth-of-type(2n)`
-*   `label` **[String][1]** State label, eg. `Hover`, `Even/Odd`
+- `name` **[String][1]** State name, eg. `hover`, `nth-of-type(2n)`
+- `label` **[String][1]** State label, eg. `Hover`, `Even/Odd`
 
 ### getName
 

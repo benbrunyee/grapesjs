@@ -6,10 +6,10 @@ You can customize the initial state of the module from the editor initialization
 
 ```js
 const editor = grapesjs.init({
- traitManager: {
-   // options
- }
-})
+  traitManager: {
+    // options
+  },
+});
 ```
 
 Once the editor is instantiated you can use the API below and listen to the events. Before using these methods, you should get the module from the instance.
@@ -24,38 +24,38 @@ tm.select(...)
 ```
 
 ## Available Events
-* `trait:select` New traits selected (eg. by changing a component).
+
+- `trait:select` New traits selected (eg. by changing a component).
 
 ```javascript
 editor.on('trait:select', ({ traits, component }) => { ... });
 ```
 
-* `trait:value` Trait value updated.
+- `trait:value` Trait value updated.
 
 ```javascript
 editor.on('trait:value', ({ trait, component, value }) => { ... });
 ```
 
-* `trait:category:update` Trait category updated.
+- `trait:category:update` Trait category updated.
 
 ```javascript
 editor.on('trait:category:update', ({ category, changes }) => { ... });
 ```
 
-* `trait:custom` Event to use in case of [custom Trait Manager UI](https\://grapesjs.com/docs/modules/Traits.html#custom-trait-manager).
+- `trait:custom` Event to use in case of [custom Trait Manager UI](https://grapesjs.com/docs/modules/Traits.html#custom-trait-manager).
 
 ```javascript
 editor.on('trait:custom', ({ container }) => { ... });
 ```
 
-* `trait` Catch-all event for all the events mentioned above. An object containing all the available data about the triggered event is passed as an argument to the callback.
+- `trait` Catch-all event for all the events mentioned above. An object containing all the available data about the triggered event is passed as an argument to the callback.
 
 ```javascript
 editor.on('trait', ({ event, model, ... }) => { ... });
 ```
 
 [Component]: component.html
-
 [Trait]: trait.html
 
 ## getConfig
@@ -70,7 +70,7 @@ Select traits from a component.
 
 ### Parameters
 
-*   `component` **[Component]**&#x20;
+- `component` **[Component]**&#x20;
 
 ### Examples
 
@@ -108,7 +108,7 @@ Get traits by category from the currently selected component.
 
 ### Parameters
 
-*   `traits` **[Array][3]\<Trait>?**&#x20;
+- `traits` **[Array][3]\<Trait>?**&#x20;
 
 ### Examples
 
@@ -144,15 +144,11 @@ More about it here: [Define new Trait type][4].
 
 ### Parameters
 
-*   `name` **[string][5]** Type name.
-*   `methods` **[Object][2]** Object representing the trait.
+- `name` **[string][5]** Type name.
+- `methods` **[Object][2]** Object representing the trait.
 
 [1]: https://github.com/GrapesJS/grapesjs/blob/master/src/trait_manager/config/config.ts
-
 [2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-
 [3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
-
 [4]: https://grapesjs.com/docs/modules/Traits.html#define-new-trait-type
-
 [5]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String

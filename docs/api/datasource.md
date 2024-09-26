@@ -8,28 +8,31 @@ The `DataSource` can be extended with transformers to modify records during add,
 
 ### DataSource API
 
-*   [addRecord][1]
-*   [getRecord][2]
-*   [getRecords][3]
-*   [removeRecord][4]
+- [addRecord][1]
+- [getRecord][2]
+- [getRecords][3]
+- [removeRecord][4]
 
 ### Example of Usage
 
 ```js
-const dataSource = new DataSource({
-  records: [
-    { id: 'id1', name: 'value1' },
-    { id: 'id2', name: 'value2' }
-  ],
-}, { em: editor });
+const dataSource = new DataSource(
+  {
+    records: [
+      { id: 'id1', name: 'value1' },
+      { id: 'id2', name: 'value2' },
+    ],
+  },
+  { em: editor },
+);
 
 dataSource.addRecord({ id: 'id3', name: 'value3' });
 ```
 
 ### Parameters
 
-*   `props` **DataSourceProps** Properties to initialize the data source.
-*   `opts` **DataSourceOptions** Options to initialize the data source.
+- `props` **DataSourceProps** Properties to initialize the data source.
+- `opts` **DataSourceOptions** Options to initialize the data source.
 
 ## defaults
 
@@ -46,8 +49,8 @@ If the `records` property is not an instance of `DataRecords`, it will be conver
 
 ### Parameters
 
-*   `props` **DataSourceProps** Properties to initialize the data source.
-*   `opts` **DataSourceOptions** Options to initialize the data source.
+- `props` **DataSourceProps** Properties to initialize the data source.
+- `opts` **DataSourceOptions** Options to initialize the data source.
 
 ## records
 
@@ -67,8 +70,8 @@ Adds a new record to the data source.
 
 ### Parameters
 
-*   `record` **DataRecordProps** The properties of the record to add.
-*   `opts` **AddOptions?** Options to apply when adding the record.
+- `record` **DataRecordProps** The properties of the record to add.
+- `opts` **AddOptions?** Options to apply when adding the record.
 
 Returns **DataRecord** The added data record.
 
@@ -78,7 +81,7 @@ Retrieves a record from the data source by its ID.
 
 ### Parameters
 
-*   `id` **([string][6] | [number][7])** The ID of the record to retrieve.
+- `id` **([string][6] | [number][7])** The ID of the record to retrieve.
 
 Returns **(DataRecord | [undefined][8])** The data record, or `undefined` if no record is found with the given ID.
 
@@ -95,8 +98,8 @@ Removes a record from the data source by its ID.
 
 ### Parameters
 
-*   `id` **([string][6] | [number][7])** The ID of the record to remove.
-*   `opts` **RemoveOptions?** Options to apply when removing the record.
+- `id` **([string][6] | [number][7])** The ID of the record to remove.
+- `opts` **RemoveOptions?** Options to apply when removing the record.
 
 Returns **(DataRecord | [undefined][8])** The removed data record, or `undefined` if no record is found with the given ID.
 
@@ -106,24 +109,16 @@ Replaces the existing records in the data source with a new set of records.
 
 ### Parameters
 
-*   `records` **[Array][9]\<DataRecordProps>** An array of data record properties to set.
+- `records` **[Array][9]\<DataRecordProps>** An array of data record properties to set.
 
 Returns **[Array][9]\<DataRecord>** An array of the added data records.
 
 [1]: #addrecord
-
 [2]: #getrecord
-
 [3]: #getrecords
-
 [4]: #removerecord
-
 [5]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-
 [6]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
 [7]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
-
 [8]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined
-
 [9]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array

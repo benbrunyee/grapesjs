@@ -6,10 +6,10 @@ You can customize the initial state of the module from the editor initialization
 
 ```js
 const editor = grapesjs.init({
- blockManager: {
-   // options
- }
-})
+  blockManager: {
+    // options
+  },
+});
 ```
 
 Once the editor is instantiated you can use its API and listen to its events. Before using these methods, you should get the module from the instance.
@@ -24,68 +24,68 @@ blockManager.add(...);
 ```
 
 ## Available Events
-* `block:add` New block added to the collection. The [Block] is passed as an argument to the callback.
+
+- `block:add` New block added to the collection. The [Block] is passed as an argument to the callback.
 
 ```javascript
 editor.on('block:add', (block) => { ... });
 ```
 
-* `block:remove` Block removed from the collection. The [Block] is passed as an argument to the callback.
+- `block:remove` Block removed from the collection. The [Block] is passed as an argument to the callback.
 
 ```javascript
 editor.on('block:remove', (block) => { ... });
 ```
 
-* `block:remove:before` Event triggered before Block remove.
+- `block:remove:before` Event triggered before Block remove.
 
 ```javascript
 editor.on('block:remove:before', (block, remove, opts) => { ... });
 ```
 
-* `block:update` Block updated. The [Block] and the object containing changes are passed as arguments to the callback.
+- `block:update` Block updated. The [Block] and the object containing changes are passed as arguments to the callback.
 
 ```javascript
 editor.on('block:update', (block, updatedProps) => { ... });
 ```
 
-* `block:drag:start` Started dragging block. The [Block] is passed as an argument.
+- `block:drag:start` Started dragging block. The [Block] is passed as an argument.
 
 ```javascript
 editor.on('block:drag:start', (block) => { ... });
 ```
 
-* `block:drag` The block is dragging. The [Block] is passed as an argument.
+- `block:drag` The block is dragging. The [Block] is passed as an argument.
 
 ```javascript
 editor.on('block:drag', (block) => { ... });
 ```
 
-* `block:drag:stop` Dragging of the block is stopped. The dropped [Component] (if dropped successfully) and the [Block] are passed as arguments.
+- `block:drag:stop` Dragging of the block is stopped. The dropped [Component] (if dropped successfully) and the [Block] are passed as arguments.
 
 ```javascript
 editor.on('block:drag:stop', (component, block) => { ... });
 ```
 
-* `block:category:update` Block category updated.
+- `block:category:update` Block category updated.
 
 ```javascript
 editor.on('block:category:update', ({ category, changes }) => { ... });
 ```
 
-* `block:custom` Event to use in case of [custom Block Manager UI](https\://grapesjs.com/docs/modules/Blocks.html#customization).
+- `block:custom` Event to use in case of [custom Block Manager UI](https://grapesjs.com/docs/modules/Blocks.html#customization).
 
 ```javascript
 editor.on('block:custom', ({ container, blocks, ... }) => { ... });
 ```
 
-* `block` Catch-all event for all the events mentioned above. An object containing all the available data about the triggered event is passed as an argument to the callback.
+- `block` Catch-all event for all the events mentioned above. An object containing all the available data about the triggered event is passed as an argument to the callback.
 
 ```javascript
 editor.on('block', ({ event, model, ... }) => { ... });
 ```
 
 [Block]: block.html
-
 [Component]: component.html
 
 ## getConfig
@@ -100,9 +100,9 @@ Add new block.
 
 ### Parameters
 
-*   `id` **[String][3]** Block ID
-*   `props` **[Block]** Block properties
-*   `opts`   (optional, default `{}`)
+- `id` **[String][3]** Block ID
+- `props` **[Block]** Block properties
+- `opts` (optional, default `{}`)
 
 ### Examples
 
@@ -112,8 +112,8 @@ blockManager.add('h1-block', {
   content: '<h1>Put your title here</h1>',
   category: 'Basic',
   attributes: {
-    title: 'Insert h1 block'
-  }
+    title: 'Insert h1 block',
+  },
 });
 ```
 
@@ -125,7 +125,7 @@ Get the block by id.
 
 ### Parameters
 
-*   `id` **[String][3]** Block id
+- `id` **[String][3]** Block id
 
 ### Examples
 
@@ -163,8 +163,8 @@ Remove block.
 
 ### Parameters
 
-*   `block` **([String][3] | [Block])** Block or block ID
-*   `opts`   (optional, default `{}`)
+- `block` **([String][3] | [Block])** Block or block ID
+- `opts` (optional, default `{}`)
 
 ### Examples
 
@@ -203,7 +203,7 @@ Get blocks by category.
 
 ### Parameters
 
-*   `blocks` **[Array][4]\<Block>?**&#x20;
+- `blocks` **[Array][4]\<Block>?**&#x20;
 
 ### Examples
 
@@ -227,11 +227,11 @@ Render blocks
 
 ### Parameters
 
-*   `blocks` **[Array][4]** Blocks to render, without the argument will render all global blocks
-*   `opts` **[Object][2]** Options (optional, default `{}`)
+- `blocks` **[Array][4]** Blocks to render, without the argument will render all global blocks
+- `opts` **[Object][2]** Options (optional, default `{}`)
 
-    *   `opts.external` **[Boolean][7]?** Render blocks in a new container (HTMLElement will be returned)
-    *   `opts.ignoreCategories` **[Boolean][7]?** Render blocks without categories
+  - `opts.external` **[Boolean][7]?** Render blocks in a new container (HTMLElement will be returned)
+  - `opts.ignoreCategories` **[Boolean][7]?** Render blocks without categories
 
 ### Examples
 
@@ -241,13 +241,11 @@ blockManager.render();
 
 // Render new set of blocks
 const blocks = blockManager.getAll();
-const filtered = blocks.filter(block => block.get('category') == 'sections')
+const filtered = blocks.filter((block) => block.get('category') == 'sections');
 
 blockManager.render(filtered);
 // Or a new set from an array
-blockManager.render([
- {label: 'Label text', content: '<div>Content</div>'}
-]);
+blockManager.render([{ label: 'Label text', content: '<div>Content</div>' }]);
 
 // Back to blocks from the global collection
 blockManager.render();
@@ -260,15 +258,9 @@ document.getElementById('some-id').appendChild(newBlocksEl);
 Returns **[HTMLElement][5]** Rendered element
 
 [1]: https://github.com/GrapesJS/grapesjs/blob/master/src/block_manager/config/config.ts
-
 [2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-
 [3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
 [4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
-
 [5]: https://developer.mozilla.org/docs/Web/HTML/Element
-
 [6]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined
-
 [7]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean

@@ -6,10 +6,10 @@ You can customize the initial state of the module from the editor initialization
 
 ```js
 const editor = grapesjs.init({
- panels: {
-   // options
- }
-})
+  panels: {
+    // options
+  },
+});
 ```
 
 Once the editor is instantiated you can use its API. Before using these methods you should get the module from the instance
@@ -18,14 +18,14 @@ Once the editor is instantiated you can use its API. Before using these methods 
 const panelManager = editor.Panels;
 ```
 
-*   [addPanel][2]
-*   [addButton][3]
-*   [getButton][4]
-*   [getPanel][5]
-*   [getPanels][6]
-*   [getPanelsEl][7]
-*   [removePanel][8]
-*   [removeButton][9]
+- [addPanel][2]
+- [addButton][3]
+- [getButton][4]
+- [getPanel][5]
+- [getPanels][6]
+- [getPanelsEl][7]
+- [removePanel][8]
+- [removeButton][9]
 
 ## getPanels
 
@@ -45,7 +45,7 @@ Add new panel to the collection
 
 ### Parameters
 
-*   `panel` **([Object][11] | Panel)** Object with right properties or an instance of Panel
+- `panel` **([Object][11] | Panel)** Object with right properties or an instance of Panel
 
 ### Examples
 
@@ -65,7 +65,7 @@ Remove a panel from the collection
 
 ### Parameters
 
-*   `panel` **(Panel | [String][12])** Panel instance or panel id
+- `panel` **(Panel | [String][12])** Panel instance or panel id
 
 ### Examples
 
@@ -85,7 +85,7 @@ Get panel by ID
 
 ### Parameters
 
-*   `id` **[string][12]** Id string
+- `id` **[string][12]** Id string
 
 ### Examples
 
@@ -101,8 +101,8 @@ Add button to the panel
 
 ### Parameters
 
-*   `panelId` **[string][12]** Panel's ID
-*   `button` **([Object][11] | Button)** Button object or instance of Button
+- `panelId` **[string][12]** Panel's ID
+- `button` **([Object][11] | Button)** Button object or instance of Button
 
 ### Examples
 
@@ -140,18 +140,18 @@ Remove button from the panel
 
 ### Parameters
 
-*   `panelId` **[String][12]** Panel's ID
-*   `button` **any**&#x20;
-*   `buttonId` **[String][12]** Button's ID
+- `panelId` **[String][12]** Panel's ID
+- `button` **any**&#x20;
+- `buttonId` **[String][12]** Button's ID
 
 ### Examples
 
 ```javascript
-const removedButton = panelManager.addButton('myNewPanel',{
+const removedButton = panelManager.addButton('myNewPanel', {
   id: 'myNewButton',
   className: 'someClass',
   command: 'someCommand',
-  attributes: { title: 'Some title'},
+  attributes: { title: 'Some title' },
   active: false,
 });
 
@@ -166,8 +166,8 @@ Get button from the panel
 
 ### Parameters
 
-*   `panelId` **[string][12]** Panel's ID
-*   `id` **[string][12]** Button's ID
+- `panelId` **[string][12]** Panel's ID
+- `id` **[string][12]** Button's ID
 
 ### Examples
 
@@ -178,25 +178,14 @@ const button = panelManager.getButton('myPanel', 'myButton');
 Returns **(Button | null)**&#x20;
 
 [1]: https://github.com/GrapesJS/grapesjs/blob/master/src/panels/config/config.ts
-
 [2]: #addpanel
-
 [3]: #addbutton
-
 [4]: #getbutton
-
 [5]: #getpanel
-
 [6]: #getpanels
-
 [7]: #getpanelsel
-
 [8]: #removepanel
-
 [9]: #removebutton
-
 [10]: https://developer.mozilla.org/docs/Web/HTML/Element
-
 [11]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-
 [12]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String

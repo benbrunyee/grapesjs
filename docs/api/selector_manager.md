@@ -19,9 +19,9 @@ span > #send-btn.btn{
 
 In this scenario we get:
 
-*   span     -> selector of type `tag`
-*   send-btn -> selector of type `id`
-*   btn      -> selector of type `class`
+- span -> selector of type `tag`
+- send-btn -> selector of type `id`
+- btn -> selector of type `class`
 
 So, for example, being `btn` the same class entity it'll be easier to refactor and track things.
 
@@ -29,10 +29,10 @@ You can customize the initial state of the module from the editor initialization
 
 ```js
 const editor = grapesjs.init({
- selectorManager: {
-   // options
- }
-})
+  selectorManager: {
+    // options
+  },
+});
 ```
 
 Once the editor is instantiated you can use its API and listen to its events. Before using these methods, you should get the module from the instance.
@@ -48,37 +48,34 @@ sm.add(...);
 
 ## Available Events
 
-*   `selector:add` - Selector added. The [Selector] is passed as an argument to the callback.
-*   `selector:remove` - Selector removed. The [Selector] is passed as an argument to the callback.
-*   `selector:update` - Selector updated. The [Selector] and the object containing changes are passed as arguments to the callback.
-*   `selector:state` - States changed. An object containing all the available data about the triggered event is passed as an argument to the callback.
-*   `selector` - Catch-all event for all the events mentioned above. An object containing all the available data about the triggered event is passed as an argument to the callback.
+- `selector:add` - Selector added. The [Selector] is passed as an argument to the callback.
+- `selector:remove` - Selector removed. The [Selector] is passed as an argument to the callback.
+- `selector:update` - Selector updated. The [Selector] and the object containing changes are passed as arguments to the callback.
+- `selector:state` - States changed. An object containing all the available data about the triggered event is passed as an argument to the callback.
+- `selector` - Catch-all event for all the events mentioned above. An object containing all the available data about the triggered event is passed as an argument to the callback.
 
 ## Methods
 
-*   [getConfig][2]
-*   [add][3]
-*   [get][4]
-*   [remove][5]
-*   [rename][6]
-*   [getAll][7]
-*   [setState][8]
-*   [getState][9]
-*   [getStates][10]
-*   [setStates][11]
-*   [getSelected][12]
-*   [addSelected][13]
-*   [removeSelected][14]
-*   [getSelectedTargets][15]
-*   [setComponentFirst][16]
-*   [getComponentFirst][17]
+- [getConfig][2]
+- [add][3]
+- [get][4]
+- [remove][5]
+- [rename][6]
+- [getAll][7]
+- [setState][8]
+- [getState][9]
+- [getStates][10]
+- [setStates][11]
+- [getSelected][12]
+- [addSelected][13]
+- [removeSelected][14]
+- [getSelectedTargets][15]
+- [setComponentFirst][16]
+- [getComponentFirst][17]
 
 [Selector]: selector.html
-
 [State]: state.html
-
 [Component]: component.html
-
 [CssRule]: css_rule.html
 
 ## getConfig
@@ -94,17 +91,17 @@ You can pass selectors properties or string identifiers.
 
 ### Parameters
 
-*   `props` **([Object][18] | [String][19])** Selector properties or string identifiers, eg. `{ name: 'my-class', label: 'My class' }`, `.my-cls`
-*   `opts` **[Object][18]?** Selector options (optional, default `{}`)
+- `props` **([Object][18] | [String][19])** Selector properties or string identifiers, eg. `{ name: 'my-class', label: 'My class' }`, `.my-cls`
+- `opts` **[Object][18]?** Selector options (optional, default `{}`)
 
 ### Examples
 
 ```javascript
 const selector = selectorManager.add({ name: 'my-class', label: 'My class' });
-console.log(selector.toString()) // `.my-class`
+console.log(selector.toString()); // `.my-class`
 // Same as
 const selector = selectorManager.add('.my-class');
-console.log(selector.toString()) // `.my-class`
+console.log(selector.toString()); // `.my-class`
 ```
 
 Returns **[Selector]**&#x20;
@@ -115,8 +112,8 @@ Get the selector by its name/type
 
 ### Parameters
 
-*   `name` **[String][19]** Selector name or string identifier
-*   `type` **[number][20]?**&#x20;
+- `name` **[String][19]** Selector name or string identifier
+- `type` **[number][20]?**&#x20;
 
 ### Examples
 
@@ -134,8 +131,8 @@ Remove Selector.
 
 ### Parameters
 
-*   `selector` **([String][19] | [Selector])** Selector instance or Selector string identifier
-*   `opts` **RemoveOptions?**&#x20;
+- `selector` **([String][19] | [Selector])** Selector instance or Selector string identifier
+- `opts` **RemoveOptions?**&#x20;
 
 ### Examples
 
@@ -153,9 +150,9 @@ Rename Selector.
 
 ### Parameters
 
-*   `selector` **[Selector]** Selector to update.
-*   `name` **[String][19]** New name for the selector.
-*   `opts` **SetOptions?**&#x20;
+- `selector` **[Selector]** Selector to update.
+- `name` **[String][19]** New name for the selector.
+- `opts` **SetOptions?**&#x20;
 
 ### Examples
 
@@ -173,7 +170,7 @@ Change the selector state
 
 ### Parameters
 
-*   `value` **[String][19]** State value
+- `value` **[String][19]** State value
 
 ### Examples
 
@@ -201,15 +198,15 @@ Set a new collection of states
 
 ### Parameters
 
-*   `states` **[Array][21]<[Object][18]>** Array of new states
-*   `opts` **any?**&#x20;
+- `states` **[Array][21]<[Object][18]>** Array of new states
+- `opts` **any?**&#x20;
 
 ### Examples
 
 ```javascript
 const states = selectorManager.setStates([
   { name: 'hover', label: 'Hover' },
-  { name: 'nth-of-type(2n)', label: 'Even/Odd' }
+  { name: 'nth-of-type(2n)', label: 'Even/Odd' },
 ]);
 ```
 
@@ -223,7 +220,7 @@ Get commonly selected selectors, based on all selected components.
 
 ```javascript
 const selected = selectorManager.getSelected();
-console.log(selected.map(s => s.toString()))
+console.log(selected.map((s) => s.toString()));
 ```
 
 Returns **[Array][21]<[Selector]>**&#x20;
@@ -236,7 +233,7 @@ Get selected selectors.
 
 ```javascript
 const selected = selectorManager.getSelectedAll();
-console.log(selected.map(s => s.toString()))
+console.log(selected.map((s) => s.toString()));
 ```
 
 Returns **[Array][21]<[Selector]>**&#x20;
@@ -247,7 +244,7 @@ Add new selector to all selected components.
 
 ### Parameters
 
-*   `props` **([Object][18] | [String][19])** Selector properties or string identifiers, eg. `{ name: 'my-class', label: 'My class' }`, `.my-cls`
+- `props` **([Object][18] | [String][19])** Selector properties or string identifiers, eg. `{ name: 'my-class', label: 'My class' }`, `.my-cls`
 
 ### Examples
 
@@ -261,7 +258,7 @@ Remove a common selector from all selected components.
 
 ### Parameters
 
-*   `selector` **([String][19] | [Selector])** Selector instance or Selector string identifier
+- `selector` **([String][19] | [Selector])** Selector instance or Selector string identifier
 
 ### Examples
 
@@ -277,7 +274,7 @@ Get the array of currently selected targets.
 
 ```javascript
 const targetsToStyle = selectorManager.getSelectedTargets();
-console.log(targetsToStyle.map(target => target.getSelectorsString()))
+console.log(targetsToStyle.map((target) => target.getSelectorsString()));
 ```
 
 Returns **[Array][21]<([Component] | [CssRule])>**&#x20;
@@ -290,7 +287,7 @@ of selectors (which would change styles on all components with those classes).
 
 ### Parameters
 
-*   `value` **[Boolean][22]**&#x20;
+- `value` **[Boolean][22]**&#x20;
 
 ## getComponentFirst
 
@@ -305,45 +302,24 @@ Get all selectors
 Returns **Collection<[Selector]>**&#x20;
 
 [1]: https://github.com/GrapesJS/grapesjs/blob/master/src/selector_manager/config/config.ts
-
 [2]: #getconfig
-
 [3]: #add
-
 [4]: #get
-
 [5]: #remove
-
 [6]: #rename
-
 [7]: #getall
-
 [8]: #setstate
-
 [9]: #getstate
-
 [10]: #getstates
-
 [11]: #setstates
-
 [12]: #getselected
-
 [13]: #addselected
-
 [14]: #removeselected
-
 [15]: #getselectedtargets
-
 [16]: #setcomponentfirst
-
 [17]: #getcomponentfirst
-
 [18]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-
 [19]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
 [20]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
-
 [21]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
-
 [22]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean

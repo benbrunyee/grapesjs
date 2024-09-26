@@ -9,10 +9,10 @@ You can customize the initial state of the module from the editor initialization
 
 ```js
 const editor = grapesjs.init({
- richTextEditor: {
-   // options
- }
-})
+  richTextEditor: {
+    // options
+  },
+});
 ```
 
 Once the editor is instantiated you can use its API and listen to its events. Before using these methods, you should get the module from the instance.
@@ -28,17 +28,17 @@ rte.add(...);
 
 ## Available Events
 
-*   `rte:enable` - RTE enabled. The view, on which RTE is enabled, is passed as an argument
-*   `rte:disable` - RTE disabled. The view, on which RTE is disabled, is passed as an argument
+- `rte:enable` - RTE enabled. The view, on which RTE is enabled, is passed as an argument
+- `rte:disable` - RTE disabled. The view, on which RTE is disabled, is passed as an argument
 
 ## Methods
 
-*   [add][3]
-*   [get][4]
-*   [run][5]
-*   [getAll][6]
-*   [remove][7]
-*   [getToolbarEl][8]
+- [add][3]
+- [get][4]
+- [run][5]
+- [getAll][6]
+- [remove][7]
+- [getToolbarEl][8]
 
 ## getConfig
 
@@ -52,22 +52,22 @@ Add a new action to the built-in RTE toolbar
 
 ### Parameters
 
-*   `name` **[string][10]** Action name
-*   `action` **[Object][9]** Action options (optional, default `{}`)
+- `name` **[string][10]** Action name
+- `action` **[Object][9]** Action options (optional, default `{}`)
 
 ### Examples
 
 ```javascript
 rte.add('bold', {
   icon: '<b>B</b>',
-  attributes: {title: 'Bold'},
-  result: rte => rte.exec('bold')
+  attributes: { title: 'Bold' },
+  result: (rte) => rte.exec('bold'),
 });
 rte.add('link', {
   icon: document.getElementById('t'),
   attributes: { title: 'Link' },
   // Example on how to wrap selected content
-  result: rte => rte.insertHTML(`<a href="#">${rte.selection()}</a>`)
+  result: (rte) => rte.insertHTML(`<a href="#">${rte.selection()}</a>`),
 });
 // An example with fontSize
 rte.add('fontSize', {
@@ -76,34 +76,35 @@ rte.add('fontSize', {
         <option>4</option>
         <option>7</option>
       </select>`,
-    // Bind the 'result' on 'change' listener
+  // Bind the 'result' on 'change' listener
   event: 'change',
   result: (rte, action) => rte.exec('fontSize', action.btn.firstChild.value),
   // Callback on any input change (mousedown, keydown, etc..)
   update: (rte, action) => {
     const value = rte.doc.queryCommandValue(action.name);
-    if (value != 'false') { // value is a string
+    if (value != 'false') {
+      // value is a string
       action.btn.firstChild.value = value;
     }
-   }
-  })
+  },
+});
 // An example with state
 const isValidAnchor = (rte) => {
   // a utility function to help determine if the selected is a valid anchor node
   const anchor = rte.selection().anchorNode;
-  const parentNode  = anchor && anchor.parentNode;
+  const parentNode = anchor && anchor.parentNode;
   const nextSibling = anchor && anchor.nextSibling;
-  return (parentNode && parentNode.nodeName == 'A') || (nextSibling && nextSibling.nodeName == 'A')
-}
+  return (parentNode && parentNode.nodeName == 'A') || (nextSibling && nextSibling.nodeName == 'A');
+};
 rte.add('toggleAnchor', {
   icon: `<span style="transform:rotate(45deg)">&supdsub;</span>`,
   state: (rte, doc) => {
-   if (rte && rte.selection()) {
-     // `btnState` is a integer, -1 for disabled, 0 for inactive, 1 for active
-     return isValidAnchor(rte) ? btnState.ACTIVE : btnState.INACTIVE;
-   } else {
-     return btnState.INACTIVE;
-   }
+    if (rte && rte.selection()) {
+      // `btnState` is a integer, -1 for disabled, 0 for inactive, 1 for active
+      return isValidAnchor(rte) ? btnState.ACTIVE : btnState.INACTIVE;
+    } else {
+      return btnState.INACTIVE;
+    }
   },
   result: (rte, action) => {
     if (isValidAnchor(rte)) {
@@ -111,8 +112,8 @@ rte.add('toggleAnchor', {
     } else {
       rte.insertHTML(`<a class="link" href="">${rte.selection()}</a>`);
     }
-  }
-})
+  },
+});
 ```
 
 ## get
@@ -121,7 +122,7 @@ Get the action by its name
 
 ### Parameters
 
-*   `name` **[string][10]** Action name
+- `name` **[string][10]** Action name
 
 ### Examples
 
@@ -144,7 +145,7 @@ Remove the action from the toolbar
 
 ### Parameters
 
-*   `name` **[string][10]**&#x20;
+- `name` **[string][10]**&#x20;
 
 ### Examples
 
@@ -161,13 +162,13 @@ Run action command.
 
 ### Parameters
 
-*   `action` **([string][10] | RichTextEditorAction)** Action to run
+- `action` **([string][10] | RichTextEditorAction)** Action to run
 
 ### Examples
 
 ```javascript
 const action = rte.get('bold');
-rte.run(action) // or rte.run('bold')
+rte.run(action); // or rte.run('bold')
 ```
 
 ## getToolbarEl
@@ -177,25 +178,14 @@ Get the toolbar element
 Returns **[HTMLElement][12]**&#x20;
 
 [1]: https://developer.mozilla.org/en-US/docs/Web/API/Document/execCommand
-
 [2]: https://github.com/GrapesJS/grapesjs/blob/master/src/rich_text_editor/config/config.ts
-
 [3]: #add
-
 [4]: #get
-
 [5]: #run
-
 [6]: #getall
-
 [7]: #remove
-
 [8]: #gettoolbarel
-
 [9]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-
 [10]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
 [11]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
-
 [12]: https://developer.mozilla.org/docs/Web/HTML/Element

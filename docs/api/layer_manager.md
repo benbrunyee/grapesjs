@@ -6,11 +6,11 @@ You can customize the initial state of the module from the editor initialization
 
 ```js
 const editor = grapesjs.init({
- // ...
- layerManager: {
-   // ...
- },
-})
+  // ...
+  layerManager: {
+    // ...
+  },
+});
 ```
 
 Once the editor is instantiated you can use its API. Before using these methods you should get the module from the instance
@@ -21,26 +21,25 @@ const layers = editor.Layers;
 
 ## Available Events
 
-*   `layer:root` - Root layer changed. The new root component is passed as an argument to the callback.
-*   `layer:component` - Component layer is updated. The updated component is passed as an argument to the callback.
+- `layer:root` - Root layer changed. The new root component is passed as an argument to the callback.
+- `layer:component` - Component layer is updated. The updated component is passed as an argument to the callback.
 
 ## Methods
 
-*   [setRoot][1]
-*   [getRoot][2]
-*   [getComponents][3]
-*   [setOpen][4]
-*   [isOpen][5]
-*   [setVisible][6]
-*   [isVisible][7]
-*   [setlocked][8]
-*   [isLocked][9]
-*   [setName][10]
-*   [getName][11]
-*   [getLayerData][12]
+- [setRoot][1]
+- [getRoot][2]
+- [getComponents][3]
+- [setOpen][4]
+- [isOpen][5]
+- [setVisible][6]
+- [isVisible][7]
+- [setlocked][8]
+- [isLocked][9]
+- [setName][10]
+- [getName][11]
+- [getLayerData][12]
 
 [Page]: page.html
-
 [Component]: component.html
 
 ## setRoot
@@ -49,7 +48,7 @@ Update the root layer with another component.
 
 ### Parameters
 
-*   `component` **([Component] | [String][13])** Component to be set as root
+- `component` **([Component] | [String][13])** Component to be set as root
 
 ### Examples
 
@@ -78,7 +77,7 @@ Get valid layer child components (eg. excludes non layerable components).
 
 ### Parameters
 
-*   `component` **[Component]** Component from which you want to get child components
+- `component` **[Component]** Component from which you want to get child components
 
 ### Examples
 
@@ -96,8 +95,8 @@ Update the layer open state of the component.
 
 ### Parameters
 
-*   `component` **[Component]** Component to update
-*   `value` **[Boolean][15]**&#x20;
+- `component` **[Component]** Component to update
+- `value` **[Boolean][15]**&#x20;
 
 ## isOpen
 
@@ -105,7 +104,7 @@ Check the layer open state of the component.
 
 ### Parameters
 
-*   `component` **[Component]**&#x20;
+- `component` **[Component]**&#x20;
 
 Returns **[Boolean][15]**&#x20;
 
@@ -115,8 +114,8 @@ Update the layer visibility state of the component.
 
 ### Parameters
 
-*   `component` **[Component]** Component to update
-*   `value` **[Boolean][15]**&#x20;
+- `component` **[Component]** Component to update
+- `value` **[Boolean][15]**&#x20;
 
 ## isVisible
 
@@ -124,7 +123,7 @@ Check the layer visibility state of the component.
 
 ### Parameters
 
-*   `component` **[Component]**&#x20;
+- `component` **[Component]**&#x20;
 
 Returns **[Boolean][15]**&#x20;
 
@@ -134,8 +133,8 @@ Update the layer locked state of the component.
 
 ### Parameters
 
-*   `component` **[Component]** Component to update
-*   `value` **[Boolean][15]**&#x20;
+- `component` **[Component]** Component to update
+- `value` **[Boolean][15]**&#x20;
 
 ## isLocked
 
@@ -143,7 +142,7 @@ Check the layer locked state of the component.
 
 ### Parameters
 
-*   `component` **[Component]**&#x20;
+- `component` **[Component]**&#x20;
 
 Returns **[Boolean][15]**&#x20;
 
@@ -153,8 +152,8 @@ Update the layer name of the component.
 
 ### Parameters
 
-*   `component` **[Component]** Component to update
-*   `value` **[String][13]** New name
+- `component` **[Component]** Component to update
+- `value` **[String][13]** New name
 
 ## getName
 
@@ -162,7 +161,7 @@ Get the layer name of the component.
 
 ### Parameters
 
-*   `component` **[Component]**&#x20;
+- `component` **[Component]**&#x20;
 
 Returns **[String][13]** Component layer name
 
@@ -172,7 +171,7 @@ Get layer data from a component.
 
 ### Parameters
 
-*   `component` **[Component]** Component from which you want to read layer data.
+- `component` **[Component]** Component from which you want to read layer data.
 
 ### Examples
 
@@ -185,33 +184,18 @@ console.log(layerData);
 Returns **[Object][16]** Object containing the layer data.
 
 [1]: #setroot
-
 [2]: #getroot
-
 [3]: #getcomponents
-
 [4]: #setopen
-
 [5]: #isopen
-
 [6]: #setvisible
-
 [7]: #isvisible
-
 [8]: #setlocked
-
 [9]: #islocked
-
 [10]: #setname
-
 [11]: #getname
-
 [12]: #getlayerdata
-
 [13]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
 [14]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
-
 [15]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
-
 [16]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object

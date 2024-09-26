@@ -2,16 +2,14 @@
 
 ## Sector
 
-
-
 [Property]: property.html
 
 ### Properties
 
-*   `id` **[String][1]** Sector id, eg. `typography`
-*   `name` **[String][1]** Sector name, eg. `Typography`
-*   `open` **[Boolean][2]?** Indicates the open state.
-*   `properties` **[Array][3]<[Object][4]>?** Indicate an array of Property defintions.
+- `id` **[String][1]** Sector id, eg. `typography`
+- `name` **[String][1]** Sector name, eg. `Typography`
+- `open` **[Boolean][2]?** Indicates the open state.
+- `properties` **[Array][3]<[Object][4]>?** Indicate an array of Property defintions.
 
 ### getId
 
@@ -31,7 +29,7 @@ Update sector name.
 
 #### Parameters
 
-*   `value` **[String][1]** New sector name
+- `value` **[String][1]** New sector name
 
 ### isOpen
 
@@ -45,7 +43,7 @@ Update Sector open state
 
 #### Parameters
 
-*   `value` **[Boolean][2]**&#x20;
+- `value` **[Boolean][2]**&#x20;
 
 ### isVisible
 
@@ -59,17 +57,14 @@ Get sector properties.
 
 #### Parameters
 
-*   `opts` **[Object][4]** Options (optional, default `{}`)
+- `opts` **[Object][4]** Options (optional, default `{}`)
 
-    *   `opts.withValue` **[Boolean][2]** Get only properties with value (optional, default `false`)
-    *   `opts.withParentValue` **[Boolean][2]** Get only properties with parent value (optional, default `false`)
+  - `opts.withValue` **[Boolean][2]** Get only properties with value (optional, default `false`)
+  - `opts.withParentValue` **[Boolean][2]** Get only properties with parent value (optional, default `false`)
 
 Returns **[Array][3]<[Property]>**&#x20;
 
 [1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
 [2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
-
 [3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
-
 [4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object

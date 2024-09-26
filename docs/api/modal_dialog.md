@@ -6,10 +6,10 @@ You can customize the initial state of the module from the editor initialization
 
 ```js
 const editor = grapesjs.init({
- modal: {
-   // options
- }
-})
+  modal: {
+    // options
+  },
+});
 ```
 
 Once the editor is instantiated you can use its API. Before using these methods you should get the module from the instance
@@ -20,21 +20,21 @@ const modal = editor.Modal;
 
 ## Available Events
 
-*   `modal:open` - Modal is opened
-*   `modal:close` - Modal is closed
-*   `modal` - Event triggered on any change related to the modal. An object containing all the available data about the triggered event is passed as an argument to the callback.
+- `modal:open` - Modal is opened
+- `modal:close` - Modal is closed
+- `modal` - Event triggered on any change related to the modal. An object containing all the available data about the triggered event is passed as an argument to the callback.
 
 ## Methods
 
-*   [open][2]
-*   [close][3]
-*   [isOpen][4]
-*   [setTitle][5]
-*   [getTitle][6]
-*   [setContent][7]
-*   [getContent][8]
-*   [onceClose][9]
-*   [onceOpen][10]
+- [open][2]
+- [close][3]
+- [isOpen][4]
+- [setTitle][5]
+- [getTitle][6]
+- [setContent][7]
+- [getContent][8]
+- [onceClose][9]
+- [onceOpen][10]
 
 ## open
 
@@ -42,11 +42,11 @@ Open the modal window
 
 ### Parameters
 
-*   `opts` **[Object][11]** Options (optional, default `{}`)
+- `opts` **[Object][11]** Options (optional, default `{}`)
 
-    *   `opts.title` **([String][12] | [HTMLElement][13])?** Title to set for the modal
-    *   `opts.content` **([String][12] | [HTMLElement][13])?** Content to set for the modal
-    *   `opts.attributes` **[Object][11]?** Updates the modal wrapper with custom attributes
+  - `opts.title` **([String][12] | [HTMLElement][13])?** Title to set for the modal
+  - `opts.content` **([String][12] | [HTMLElement][13])?** Content to set for the modal
+  - `opts.attributes` **[Object][11]?** Updates the modal wrapper with custom attributes
 
 ### Examples
 
@@ -79,13 +79,13 @@ The callback will be called one only time
 
 ### Parameters
 
-*   `clb` **[Function][14]** Callback to call
+- `clb` **[Function][14]** Callback to call
 
 ### Examples
 
 ```javascript
 modal.onceClose(() => {
- console.log('The modal is closed');
+  console.log('The modal is closed');
 });
 ```
 
@@ -98,13 +98,13 @@ The callback will be called one only time
 
 ### Parameters
 
-*   `clb` **[Function][14]** Callback to call
+- `clb` **[Function][14]** Callback to call
 
 ### Examples
 
 ```javascript
 modal.onceOpen(() => {
- console.log('The modal is opened');
+  console.log('The modal is opened');
 });
 ```
 
@@ -128,7 +128,7 @@ Set the title to the modal window
 
 ### Parameters
 
-*   `title` **([string][12] | [HTMLElement][13])** Title
+- `title` **([string][12] | [HTMLElement][13])** Title
 
 ### Examples
 
@@ -137,7 +137,7 @@ Set the title to the modal window
 modal.setTitle('Some title');
 // or an HTMLElement
 const el = document.createElement('div');
-el.innerText =  'New title';
+el.innerText = 'New title';
 modal.setTitle(el);
 ```
 
@@ -161,7 +161,7 @@ Set the content of the modal window
 
 ### Parameters
 
-*   `content` **([string][12] | [HTMLElement][13])** Content
+- `content` **([string][12] | [HTMLElement][13])** Content
 
 ### Examples
 
@@ -170,7 +170,7 @@ Set the content of the modal window
 modal.setContent('Some content');
 // or an HTMLElement
 const el = document.createElement('div');
-el.innerText =  'New content';
+el.innerText = 'New content';
 modal.setContent(el);
 ```
 
@@ -189,31 +189,17 @@ modal.getContent();
 Returns **([string][12] | [HTMLElement][13])**&#x20;
 
 [1]: https://github.com/GrapesJS/grapesjs/blob/master/src/modal_dialog/config/config.ts
-
 [2]: #open
-
 [3]: #close
-
 [4]: #isopen
-
 [5]: #settitle
-
 [6]: #gettitle
-
 [7]: #setcontent
-
 [8]: #getcontent
-
 [9]: #onceclose
-
 [10]: #onceopen
-
 [11]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-
 [12]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
 [13]: https://developer.mozilla.org/docs/Web/HTML/Element
-
 [14]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
-
 [15]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean

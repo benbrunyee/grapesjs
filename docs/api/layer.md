@@ -18,9 +18,9 @@ Get layer values.
 
 ### Parameters
 
-*   `opts` **[Object][3]** Options (optional, default `{}`)
+- `opts` **[Object][3]** Options (optional, default `{}`)
 
-    *   `opts.camelCase` **[Boolean][4]?** Return property names in camelCase.
+  - `opts.camelCase` **[Boolean][4]?** Return property names in camelCase.
 
 Returns **[Object][3]**&#x20;
 
@@ -50,7 +50,7 @@ Move layer to a new index.
 
 ### Parameters
 
-*   `index` **[Number][2]** New index
+- `index` **[Number][2]** New index
 
 ## getStylePreview
 
@@ -58,7 +58,7 @@ Get style object for the preview.
 
 ### Parameters
 
-*   `opts` **[Object][3]** Options. Same of `PropertyStack.getStyleFromLayer` (optional, default `{}`)
+- `opts` **[Object][3]** Options. Same of `PropertyStack.getStyleFromLayer` (optional, default `{}`)
 
 Returns **[Object][3]** Style object
 
@@ -69,9 +69,6 @@ Check if the property has the preview enabled for this layer.
 Returns **[Boolean][4]**&#x20;
 
 [1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
 [2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
-
 [3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-
 [4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean

@@ -4,8 +4,8 @@
 
 ### Properties
 
-*   `type` **[String][1]** Asset type, eg. `'image'`.
-*   `src` **[String][1]** Asset URL, eg. `'https://.../image.png'`.
+- `type` **[String][1]** Asset type, eg. `'image'`.
+- `src` **[String][1]** Asset URL, eg. `'https://.../image.png'`.
 
 ## getType
 

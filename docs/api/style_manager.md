@@ -7,10 +7,10 @@ You can customize the initial state of the module from the editor initialization
 
 ```js
 const editor = grapesjs.init({
- styleManager: {
-   // options
- }
-})
+  styleManager: {
+    // options
+  },
+});
 ```
 
 Once the editor is instantiated you can use its API and listen to its events. Before using these methods, you should get the module from the instance.
@@ -26,13 +26,13 @@ styleManager.addSector(...);
 
 ## Available Events
 
-*   `style:sector:add` - Sector added. The [Sector] is passed as an argument to the callback.
-*   `style:sector:remove` - Sector removed. The [Sector] is passed as an argument to the callback.
-*   `style:sector:update` - Sector updated. The [Sector] and the object containing changes are passed as arguments to the callback.
-*   `style:property:add` - Property added. The [Property] is passed as an argument to the callback.
-*   `style:property:remove` - Property removed. The [Property] is passed as an argument to the callback.
-*   `style:property:update` - Property updated. The [Property] and the object containing changes are passed as arguments to the callback.
-*   `style:target` - Target selection changed. The target (or `null` in case the target is deselected) is passed as an argument to the callback.
+- `style:sector:add` - Sector added. The [Sector] is passed as an argument to the callback.
+- `style:sector:remove` - Sector removed. The [Sector] is passed as an argument to the callback.
+- `style:sector:update` - Sector updated. The [Sector] and the object containing changes are passed as arguments to the callback.
+- `style:property:add` - Property added. The [Property] is passed as an argument to the callback.
+- `style:property:remove` - Property removed. The [Property] is passed as an argument to the callback.
+- `style:property:update` - Property updated. The [Property] and the object containing changes are passed as arguments to the callback.
+- `style:target` - Target selection changed. The target (or `null` in case the target is deselected) is passed as an argument to the callback.
 
 <!--
 * `styleManager:update:target` - The target (Component or CSSRule) is changed
@@ -42,33 +42,30 @@ styleManager.addSector(...);
 
 ## Methods
 
-*   [getConfig][2]
-*   [addSector][3]
-*   [getSector][4]
-*   [getSectors][5]
-*   [removeSector][6]
-*   [addProperty][7]
-*   [getProperty][8]
-*   [getProperties][9]
-*   [removeProperty][10]
-*   [select][11]
-*   [getSelected][12]
-*   [getSelectedAll][13]
-*   [getSelectedParents][14]
-*   [addStyleTargets][15]
-*   [getBuiltIn][16]
-*   [getBuiltInAll][17]
-*   [addBuiltIn][18]
-*   [addType][19]
-*   [getType][20]
-*   [getTypes][21]
+- [getConfig][2]
+- [addSector][3]
+- [getSector][4]
+- [getSectors][5]
+- [removeSector][6]
+- [addProperty][7]
+- [getProperty][8]
+- [getProperties][9]
+- [removeProperty][10]
+- [select][11]
+- [getSelected][12]
+- [getSelectedAll][13]
+- [getSelectedParents][14]
+- [addStyleTargets][15]
+- [getBuiltIn][16]
+- [getBuiltInAll][17]
+- [addBuiltIn][18]
+- [addType][19]
+- [getType][20]
+- [getTypes][21]
 
 [Sector]: sector.html
-
 [CssRule]: css_rule.html
-
 [Component]: component.html
-
 [Property]: property.html
 
 ## Sectors
@@ -85,20 +82,24 @@ Add new sector. If the sector with the same id already exists, that one will be 
 
 ### Parameters
 
-*   `id` **[String][23]** Sector id
-*   `sector` **[Object][22]** Sector definition. Check the [available properties][24]
-*   `options` **[Object][22]** Options (optional, default `{}`)
+- `id` **[String][23]** Sector id
+- `sector` **[Object][22]** Sector definition. Check the [available properties][24]
+- `options` **[Object][22]** Options (optional, default `{}`)
 
-    *   `options.at` **[Number][25]?** Position index (by default, will be appended at the end).
+  - `options.at` **[Number][25]?** Position index (by default, will be appended at the end).
 
 ### Examples
 
 ```javascript
-const sector = styleManager.addSector('mySector',{
-  name: 'My sector',
-  open: true,
-  properties: [{ name: 'My property'}]
-}, { at: 0 });
+const sector = styleManager.addSector(
+  'mySector',
+  {
+    name: 'My sector',
+    open: true,
+    properties: [{ name: 'My property' }],
+  },
+  { at: 0 },
+);
 // With `at: 0` we place the new sector at the beginning of the list
 ```
 
@@ -110,8 +111,8 @@ Get sector by id.
 
 ### Parameters
 
-*   `id` **[String][23]** Sector id
-*   `opts` **{warn: [boolean][26]?}**  (optional, default `{}`)
+- `id` **[String][23]** Sector id
+- `opts` **{warn: [boolean][26]?}** (optional, default `{}`)
 
 ### Examples
 
@@ -127,9 +128,9 @@ Get all sectors.
 
 ### Parameters
 
-*   `opts` **[Object][22]** Options (optional, default `{}`)
+- `opts` **[Object][22]** Options (optional, default `{}`)
 
-    *   `opts.visible` **[Boolean][26]?** Returns only visible sectors
+  - `opts.visible` **[Boolean][26]?** Returns only visible sectors
 
 ### Examples
 
@@ -145,7 +146,7 @@ Remove sector by id.
 
 ### Parameters
 
-*   `id` **[String][23]** Sector id
+- `id` **[String][23]** Sector id
 
 ### Examples
 
@@ -161,25 +162,29 @@ Add new property to the sector.
 
 ### Parameters
 
-*   `sectorId` **[String][23]** Sector id.
-*   `property` **[Object][22]** Property definition. Check the [base available properties][28] + others based on the `type` of your property.
-*   `opts` **[Object][22]** Options (optional, default `{}`)
+- `sectorId` **[String][23]** Sector id.
+- `property` **[Object][22]** Property definition. Check the [base available properties][28] + others based on the `type` of your property.
+- `opts` **[Object][22]** Options (optional, default `{}`)
 
-    *   `opts.at` **[Number][25]?** Position index (by default, will be appended at the end).
+  - `opts.at` **[Number][25]?** Position index (by default, will be appended at the end).
 
 ### Examples
 
 ```javascript
-const property = styleManager.addProperty('mySector', {
-  label: 'Minimum height',
-  property: 'min-height',
-  type: 'select',
-  default: '100px',
-  options: [
-   { id: '100px', label: '100' },
-   { id: '200px', label: '200' },
-  ],
-}, { at: 0 });
+const property = styleManager.addProperty(
+  'mySector',
+  {
+    label: 'Minimum height',
+    property: 'min-height',
+    type: 'select',
+    default: '100px',
+    options: [
+      { id: '100px', label: '100' },
+      { id: '200px', label: '200' },
+    ],
+  },
+  { at: 0 },
+);
 ```
 
 Returns **([Property] | null)** Added property or `null` in case the sector doesn't exist.
@@ -190,8 +195,8 @@ Get the property.
 
 ### Parameters
 
-*   `sectorId` **[String][23]** Sector id.
-*   `id` **[String][23]** Property id.
+- `sectorId` **[String][23]** Sector id.
+- `id` **[String][23]** Property id.
 
 ### Examples
 
@@ -207,7 +212,7 @@ Get all properties of the sector.
 
 ### Parameters
 
-*   `sectorId` **[String][23]** Sector id.
+- `sectorId` **[String][23]** Sector id.
 
 ### Examples
 
@@ -223,8 +228,8 @@ Remove the property.
 
 ### Parameters
 
-*   `sectorId` **[String][23]** Sector id.
-*   `id` **[String][23]** Property id.
+- `sectorId` **[String][23]** Sector id.
+- `id` **[String][23]** Property id.
 
 ### Examples
 
@@ -241,8 +246,8 @@ The target could be a Component, CSSRule, or a CSS selector string.
 
 ### Parameters
 
-*   `target` **([Component] | [CSSRule] | [String][23])**&#x20;
-*   `opts` **{stylable: [boolean][26]?, component: Component?}**  (optional, default `{}`)
+- `target` **([Component] | [CSSRule] | [String][23])**&#x20;
+- `opts` **{stylable: [boolean][26]?, component: Component?}** (optional, default `{}`)
 
 ### Examples
 
@@ -283,8 +288,8 @@ Update selected targets with a custom style.
 
 ### Parameters
 
-*   `style` **[Object][22]** Style object
-*   `opts` **[Object][22]** Options (optional, default `{}`)
+- `style` **[Object][22]** Style object
+- `opts` **[Object][22]** Options (optional, default `{}`)
 
 ### Examples
 
@@ -298,7 +303,7 @@ Return built-in property definition
 
 ### Parameters
 
-*   `prop` **[String][23]** Property name.
+- `prop` **[String][23]** Property name.
 
 ### Examples
 
@@ -321,8 +326,8 @@ If the property exists already, it will extend it.
 
 ### Parameters
 
-*   `prop` **[String][23]** Property name.
-*   `definition` **[Object][22]** Property definition.
+- `prop` **[String][23]** Property name.
+- `definition` **[Object][22]** Property definition.
 
 ### Examples
 
@@ -342,34 +347,34 @@ Add new property type
 
 ### Parameters
 
-*   `id` **[string][23]** Type ID
-*   `definition` **[Object][22]** Definition of the type.
+- `id` **[string][23]** Type ID
+- `definition` **[Object][22]** Definition of the type.
 
 ### Examples
 
 ```javascript
 styleManager.addType('my-custom-prop', {
-   // Create UI
-   create({ props, change }) {
-     const el = document.createElement('div');
-     el.innerHTML = '<input type="range" class="my-input" min="10" max="50"/>';
-     const inputEl = el.querySelector('.my-input');
-     inputEl.addEventListener('change', event => change({ event }));
-     inputEl.addEventListener('input', event => change({ event, partial: true }));
-     return el;
-   },
-   // Propagate UI changes up to the targets
-   emit({ props, updateStyle }, { event, partial }) {
-     const { value } = event.target;
-     updateStyle(`${value}px`, { partial });
-   },
-   // Update UI (eg. when the target is changed)
-   update({ value, el }) {
-     el.querySelector('.my-input').value = parseInt(value, 10);
-   },
-   // Clean the memory from side effects if necessary (eg. global event listeners, etc.)
-   destroy() {}
-})
+  // Create UI
+  create({ props, change }) {
+    const el = document.createElement('div');
+    el.innerHTML = '<input type="range" class="my-input" min="10" max="50"/>';
+    const inputEl = el.querySelector('.my-input');
+    inputEl.addEventListener('change', (event) => change({ event }));
+    inputEl.addEventListener('input', (event) => change({ event, partial: true }));
+    return el;
+  },
+  // Propagate UI changes up to the targets
+  emit({ props, updateStyle }, { event, partial }) {
+    const { value } = event.target;
+    updateStyle(`${value}px`, { partial });
+  },
+  // Update UI (eg. when the target is changed)
+  update({ value, el }) {
+    el.querySelector('.my-input').value = parseInt(value, 10);
+  },
+  // Clean the memory from side effects if necessary (eg. global event listeners, etc.)
+  destroy() {},
+});
 ```
 
 ## getType
@@ -378,7 +383,7 @@ Get type
 
 ### Parameters
 
-*   `id` **[string][23]** Type ID
+- `id` **[string][23]** Type ID
 
 Returns **[Object][22]** Type definition
 
@@ -389,59 +394,31 @@ Get all types
 Returns **[Array][27]**&#x20;
 
 [1]: https://github.com/GrapesJS/grapesjs/blob/master/src/style_manager/config/config.ts
-
 [2]: #getconfig
-
 [3]: #addsector
-
 [4]: #getsector
-
 [5]: #getsectors
-
 [6]: #removesector
-
 [7]: #addproperty
-
 [8]: #getproperty
-
 [9]: #getproperties
-
 [10]: #removeproperty
-
 [11]: #select
-
 [12]: #getselected
-
 [13]: #getselectedall
-
 [14]: #getselectedparents
-
 [15]: #addstyletargets
-
 [16]: #getbuiltin
-
 [17]: #getbuiltinall
-
 [18]: #addbuiltin
-
 [19]: #addtype
-
 [20]: #gettype
-
 [21]: #gettypes
-
 [22]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-
 [23]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
 [24]: sector.html#properties
-
 [25]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
-
 [26]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
-
 [27]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
-
 [28]: property.html#properties
-
 [29]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined

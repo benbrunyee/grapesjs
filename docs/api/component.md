@@ -21,48 +21,48 @@ component.get('tagName');
 
 ### Properties
 
-*   `type` **[String][1]?** Component type, eg. `text`, `image`, `video`, etc.
-*   `tagName` **[String][1]?** HTML tag of the component, eg. `span`. Default: `div`
-*   `attributes` **[Object][2]?** Key-value object of the component's attributes, eg. `{ title: 'Hello' }` Default: `{}`
-*   `name` **[String][1]?** Name of the component. Will be used, for example, in Layers and badges
-*   `removable` **[Boolean][3]?** When `true` the component is removable from the canvas, default: `true`
-*   `draggable` **([Boolean][3] | [String][1] | [Function][4])?** Indicates if it's possible to drag the component inside others.
-    You can also specify a query string to indentify elements,
-    eg. `'.some-class[title=Hello], [data-gjs-type=column]'` means you can drag the component only inside elements
-    containing `some-class` class and `Hello` title, and `column` components. In the case of a function, target and destination components are passed as arguments, return a Boolean to indicate if the drag is possible. Default: `true`
-*   `droppable` **([Boolean][3] | [String][1] | [Function][4])?** Indicates if it's possible to drop other components inside. You can use
-    a query string as with `draggable`. In the case of a function, target and destination components are passed as arguments, return a Boolean to indicate if the drop is possible. Default: `true`
-*   `badgable` **[Boolean][3]?** Set to false if you don't want to see the badge (with the name) over the component. Default: `true`
-*   `stylable` **([Boolean][3] | [Array][5]<[String][1]>)?** True if it's possible to style the component.
-    You can also indicate an array of CSS properties which is possible to style, eg. `['color', 'width']`, all other properties
-    will be hidden from the style manager. Default: `true`
-*   `stylable-require` **[Array][5]<[String][1]>?** Indicate an array of style properties to show up which has been marked as `toRequire`. Default: `[]`
-*   `unstylable` **[Array][5]<[String][1]>?** Indicate an array of style properties which should be hidden from the style manager. Default: `[]`
-*   `highlightable` **[Boolean][3]?** It can be highlighted with 'dotted' borders if true. Default: `true`
-*   `copyable` **[Boolean][3]?** True if it's possible to clone the component. Default: `true`
-*   `resizable` **[Boolean][3]?** Indicates if it's possible to resize the component. It's also possible to pass an object as [options for the Resizer][6]. Default: `false`
-*   `editable` **[Boolean][3]?** Allow to edit the content of the component (used on Text components). Default: `false`
-*   `layerable` **[Boolean][3]?** Set to `false` if you need to hide the component inside Layers. Default: `true`
-*   `selectable` **[Boolean][3]?** Allow component to be selected when clicked. Default: `true`
-*   `hoverable` **[Boolean][3]?** Shows a highlight outline when hovering on the element if `true`. Default: `true`
-*   `locked` **[Boolean][3]?** Disable the selection of the component and its children in the canvas. You can unlock a children by setting its locked property to `false`. Default: `undefined`
-*   `void` **[Boolean][3]?** This property is used by the HTML exporter as void elements don't have closing tags, eg. `<br/>`, `<hr/>`, etc. Default: `false`
-*   `style` **[Object][2]?** Component default style, eg. `{ width: '100px', height: '100px', 'background-color': 'red' }`
-*   `styles` **[String][1]?** Component related styles, eg. `.my-component-class { color: red }`
-*   `content` **[String][1]?** Content of the component (not escaped) which will be appended before children rendering. Default: `''`
-*   `icon` **[String][1]?** Component's icon, this string will be inserted before the name (in Layers and badge), eg. it can be an HTML string '<i class="fa fa-square-o"></i>'. Default: `''`
-*   `script` **([String][1] | [Function][4])?** Component's javascript. More about it [here][7]. Default: `''`
-*   `script-export` **([String][1] | [Function][4])?** You can specify javascript available only in export functions (eg. when you get the HTML).
-    If this property is defined it will overwrite the `script` one (in export functions). Default: `''`
-*   `traits` **[Array][5]<([Object][2] | [String][1])>?** Component's traits. More about it [here][8]. Default: `['id', 'title']`
-*   `propagate` **[Array][5]<[String][1]>?** Indicates an array of properties which will be inhereted by all NEW appended children.
-    For example if you create a component likes this: `{ removable: false, draggable: false, propagate: ['removable', 'draggable'] }`
-    and append some new component inside, the new added component will get the exact same properties indicated in the `propagate` array (and the `propagate` property itself). Default: `[]`
-*   `toolbar` **[Array][5]<[Object][2]>?** Set an array of items to show up inside the toolbar when the component is selected (move, clone, delete).
-    Eg. `toolbar: [ { attributes: {class: 'fa fa-arrows'}, command: 'tlb-move' }, ... ]`.
-    By default, when `toolbar` property is falsy the editor will add automatically commands `core:component-exit` (select parent component, added if there is one), `tlb-move` (added if `draggable`) , `tlb-clone` (added if `copyable`), `tlb-delete` (added if `removable`).
-*   `components` **Collection\<Component>?** Children components. Default: `null`
-*   `delegate` **[Object][2]?** Delegate commands to other components. Available commands `remove` | `move` | `copy` | `select`. eg. `{ remove: (cmp) => cmp.closestType('other-type') }`
+- `type` **[String][1]?** Component type, eg. `text`, `image`, `video`, etc.
+- `tagName` **[String][1]?** HTML tag of the component, eg. `span`. Default: `div`
+- `attributes` **[Object][2]?** Key-value object of the component's attributes, eg. `{ title: 'Hello' }` Default: `{}`
+- `name` **[String][1]?** Name of the component. Will be used, for example, in Layers and badges
+- `removable` **[Boolean][3]?** When `true` the component is removable from the canvas, default: `true`
+- `draggable` **([Boolean][3] | [String][1] | [Function][4])?** Indicates if it's possible to drag the component inside others.
+  You can also specify a query string to indentify elements,
+  eg. `'.some-class[title=Hello], [data-gjs-type=column]'` means you can drag the component only inside elements
+  containing `some-class` class and `Hello` title, and `column` components. In the case of a function, target and destination components are passed as arguments, return a Boolean to indicate if the drag is possible. Default: `true`
+- `droppable` **([Boolean][3] | [String][1] | [Function][4])?** Indicates if it's possible to drop other components inside. You can use
+  a query string as with `draggable`. In the case of a function, target and destination components are passed as arguments, return a Boolean to indicate if the drop is possible. Default: `true`
+- `badgable` **[Boolean][3]?** Set to false if you don't want to see the badge (with the name) over the component. Default: `true`
+- `stylable` **([Boolean][3] | [Array][5]<[String][1]>)?** True if it's possible to style the component.
+  You can also indicate an array of CSS properties which is possible to style, eg. `['color', 'width']`, all other properties
+  will be hidden from the style manager. Default: `true`
+- `stylable-require` **[Array][5]<[String][1]>?** Indicate an array of style properties to show up which has been marked as `toRequire`. Default: `[]`
+- `unstylable` **[Array][5]<[String][1]>?** Indicate an array of style properties which should be hidden from the style manager. Default: `[]`
+- `highlightable` **[Boolean][3]?** It can be highlighted with 'dotted' borders if true. Default: `true`
+- `copyable` **[Boolean][3]?** True if it's possible to clone the component. Default: `true`
+- `resizable` **[Boolean][3]?** Indicates if it's possible to resize the component. It's also possible to pass an object as [options for the Resizer][6]. Default: `false`
+- `editable` **[Boolean][3]?** Allow to edit the content of the component (used on Text components). Default: `false`
+- `layerable` **[Boolean][3]?** Set to `false` if you need to hide the component inside Layers. Default: `true`
+- `selectable` **[Boolean][3]?** Allow component to be selected when clicked. Default: `true`
+- `hoverable` **[Boolean][3]?** Shows a highlight outline when hovering on the element if `true`. Default: `true`
+- `locked` **[Boolean][3]?** Disable the selection of the component and its children in the canvas. You can unlock a children by setting its locked property to `false`. Default: `undefined`
+- `void` **[Boolean][3]?** This property is used by the HTML exporter as void elements don't have closing tags, eg. `<br/>`, `<hr/>`, etc. Default: `false`
+- `style` **[Object][2]?** Component default style, eg. `{ width: '100px', height: '100px', 'background-color': 'red' }`
+- `styles` **[String][1]?** Component related styles, eg. `.my-component-class { color: red }`
+- `content` **[String][1]?** Content of the component (not escaped) which will be appended before children rendering. Default: `''`
+- `icon` **[String][1]?** Component's icon, this string will be inserted before the name (in Layers and badge), eg. it can be an HTML string '<i class="fa fa-square-o"></i>'. Default: `''`
+- `script` **([String][1] | [Function][4])?** Component's javascript. More about it [here][7]. Default: `''`
+- `script-export` **([String][1] | [Function][4])?** You can specify javascript available only in export functions (eg. when you get the HTML).
+  If this property is defined it will overwrite the `script` one (in export functions). Default: `''`
+- `traits` **[Array][5]<([Object][2] | [String][1])>?** Component's traits. More about it [here][8]. Default: `['id', 'title']`
+- `propagate` **[Array][5]<[String][1]>?** Indicates an array of properties which will be inhereted by all NEW appended children.
+  For example if you create a component likes this: `{ removable: false, draggable: false, propagate: ['removable', 'draggable'] }`
+  and append some new component inside, the new added component will get the exact same properties indicated in the `propagate` array (and the `propagate` property itself). Default: `[]`
+- `toolbar` **[Array][5]<[Object][2]>?** Set an array of items to show up inside the toolbar when the component is selected (move, clone, delete).
+  Eg. `toolbar: [ { attributes: {class: 'fa fa-arrows'}, command: 'tlb-move' }, ... ]`.
+  By default, when `toolbar` property is falsy the editor will add automatically commands `core:component-exit` (select parent component, added if there is one), `tlb-move` (added if `draggable`) , `tlb-clone` (added if `copyable`), `tlb-delete` (added if `removable`).
+- `components` **Collection\<Component>?** Children components. Default: `null`
+- `delegate` **[Object][2]?** Delegate commands to other components. Available commands `remove` | `move` | `copy` | `select`. eg. `{ remove: (cmp) => cmp.closestType('other-type') }`
 
 ## init
 
@@ -74,9 +74,9 @@ Hook method, called when the model has been updated (eg. updated some model's pr
 
 ### Parameters
 
-*   `property` **[String][1]** Property name, if triggered after some property update
-*   `value` **any** Property value, if triggered after some property update
-*   `previous` **any** Property previous value, if triggered after some property update
+- `property` **[String][1]** Property name, if triggered after some property update
+- `value` **any** Property value, if triggered after some property update
+- `previous` **any** Property previous value, if triggered after some property update
 
 ## removed
 
@@ -88,12 +88,12 @@ Check component's type
 
 ### Parameters
 
-*   `type` **[string][1]** Component type
+- `type` **[string][1]** Component type
 
 ### Examples
 
 ```javascript
-component.is('image')
+component.is('image');
 // -> false
 ```
 
@@ -118,7 +118,7 @@ To get more about this feature read: [https://github.com/GrapesJS/grapesjs/issue
 
 ### Parameters
 
-*   `value` **[String][1]** Drag mode, options: `'absolute'` | `'translate'` | `''`
+- `value` **[String][1]** Drag mode, options: `'absolute'` | `'translate'` | `''`
 
 Returns **this**&#x20;
 
@@ -136,7 +136,7 @@ By setting override to specific properties, changes of those properties will be 
 
 ### Parameters
 
-*   `value` **([Boolean][3] | [String][1] | [Array][5]<[String][1]>)**&#x20;
+- `value` **([Boolean][3] | [String][1] | [Array][5]<[String][1]>)**&#x20;
 
 ### Examples
 
@@ -157,7 +157,7 @@ Find inner components by query string.
 
 ### Parameters
 
-*   `query` **[String][1]** Query string
+- `query` **[String][1]** Query string
 
 ### Examples
 
@@ -176,13 +176,13 @@ also before rendering the component
 
 ### Parameters
 
-*   `type` **[String][1]** Component type
+- `type` **[String][1]** Component type
 
 ### Examples
 
 ```javascript
 const allImages = component.findType('image');
-console.log(allImages[0]) // prints the first found component
+console.log(allImages[0]); // prints the first found component
 ```
 
 Returns **[Array][5]\<Component>**&#x20;
@@ -194,14 +194,14 @@ If no component is found, it returns `undefined`.
 
 ### Parameters
 
-*   `type` **[String][1]** Component type
+- `type` **[String][1]** Component type
 
 ### Examples
 
 ```javascript
 const image = component.findFirstType('image');
 if (image) {
- console.log(image);
+  console.log(image);
 }
 ```
 
@@ -214,7 +214,7 @@ Find the closest parent component by query string.
 
 ### Parameters
 
-*   `query` **[string][1]** Query string
+- `query` **[string][1]** Query string
 
 ### Examples
 
@@ -233,7 +233,7 @@ also before rendering the component
 
 ### Parameters
 
-*   `type` **[String][1]** Component type
+- `type` **[String][1]** Component type
 
 ### Examples
 
@@ -251,7 +251,7 @@ component is a descendant of a given component
 
 ### Parameters
 
-*   `component` **Component** Component to check
+- `component` **Component** Component to check
 
 Returns **[Boolean][3]**&#x20;
 
@@ -261,8 +261,8 @@ Replace a component with another one
 
 ### Parameters
 
-*   `el` **([String][1] | Component)** Component or HTML string
-*   `opts` **[Object][2]** Options for the append action (optional, default `{}`)
+- `el` **([String][1] | Component)** Component or HTML string
+- `opts` **[Object][2]** Options for the append action (optional, default `{}`)
 
 ### Examples
 
@@ -279,9 +279,9 @@ Update attributes of the component
 
 ### Parameters
 
-*   `attrs` **[Object][2]** Key value attributes
-*   `opts` **SetAttrOptions**  (optional, default `{}`)
-*   `options` **[Object][2]** Options for the model update
+- `attrs` **[Object][2]** Key value attributes
+- `opts` **SetAttrOptions** (optional, default `{}`)
+- `options` **[Object][2]** Options for the model update
 
 ### Examples
 
@@ -297,9 +297,9 @@ Add attributes to the component
 
 ### Parameters
 
-*   `attrs` **[Object][2]** Key value attributes
-*   `opts` **SetAttrOptions**  (optional, default `{}`)
-*   `options` **[Object][2]** Options for the model update
+- `attrs` **[Object][2]** Key value attributes
+- `opts` **SetAttrOptions** (optional, default `{}`)
+- `options` **[Object][2]** Options for the model update
 
 ### Examples
 
@@ -315,9 +315,9 @@ Remove attributes from the component
 
 ### Parameters
 
-*   `attrs` **([String][1] | [Array][5]<[String][1]>)** Array of attributes to remove (optional, default `[]`)
-*   `opts` **SetOptions**  (optional, default `{}`)
-*   `options` **[Object][2]** Options for the model update
+- `attrs` **([String][1] | [Array][5]<[String][1]>)** Array of attributes to remove (optional, default `[]`)
+- `opts` **SetOptions** (optional, default `{}`)
+- `options` **[Object][2]** Options for the model update
 
 ### Examples
 
@@ -334,8 +334,8 @@ Get the style of the component
 
 ### Parameters
 
-*   `options` **any**  (optional, default `{}`)
-*   `optsAdd` **any**  (optional, default `{}`)
+- `options` **any** (optional, default `{}`)
+- `optsAdd` **any** (optional, default `{}`)
 
 Returns **[Object][2]**&#x20;
 
@@ -345,8 +345,8 @@ Set the style on the component
 
 ### Parameters
 
-*   `prop` **[Object][2]** Key value style object (optional, default `{}`)
-*   `opts` **UpdateStyleOptions**  (optional, default `{}`)
+- `prop` **[Object][2]** Key value style object (optional, default `{}`)
+- `opts` **UpdateStyleOptions** (optional, default `{}`)
 
 ### Examples
 
@@ -362,7 +362,7 @@ Return all component's attributes
 
 ### Parameters
 
-*   `opts` **{noClass: [boolean][3]?, noStyle: [boolean][3]?}**  (optional, default `{}`)
+- `opts` **{noClass: [boolean][3]?, noStyle: [boolean][3]?}** (optional, default `{}`)
 
 Returns **[Object][2]**&#x20;
 
@@ -372,7 +372,7 @@ Add classes
 
 ### Parameters
 
-*   `classes` **([Array][5]<[String][1]> | [String][1])** Array or string of classes
+- `classes` **([Array][5]<[String][1]> | [String][1])** Array or string of classes
 
 ### Examples
 
@@ -391,7 +391,7 @@ Set classes (resets current collection)
 
 ### Parameters
 
-*   `classes` **([Array][5]<[String][1]> | [String][1])** Array or string of classes
+- `classes` **([Array][5]<[String][1]> | [String][1])** Array or string of classes
 
 ### Examples
 
@@ -410,7 +410,7 @@ Remove classes
 
 ### Parameters
 
-*   `classes` **([Array][5]<[String][1]> | [String][1])** Array or string of classes
+- `classes` **([Array][5]<[String][1]> | [String][1])** Array or string of classes
 
 ### Examples
 
@@ -435,16 +435,16 @@ Add new component children
 
 ### Parameters
 
-*   `components` **(Component | [String][1])** Component to add
-*   `opts` **[Object][2]** Options for the append action (optional, default `{}`)
+- `components` **(Component | [String][1])** Component to add
+- `opts` **[Object][2]** Options for the append action (optional, default `{}`)
 
 ### Examples
 
 ```javascript
-someComponent.get('components').length // -> 0
+someComponent.get('components').length; // -> 0
 const videoComponent = someComponent.append('<video></video><div></div>')[0];
 // This will add 2 components (`video` and `div`) to your `someComponent`
-someComponent.get('components').length // -> 2
+someComponent.get('components').length; // -> 2
 // You can pass components directly
 otherComponent.append(otherComponent2);
 otherComponent.append([otherComponent3, otherComponent4]);
@@ -461,8 +461,8 @@ current collection is returned
 
 ### Parameters
 
-*   `components` **(Component | [Array][5]\<Component> | [String][1])?** Component Definitions or HTML string
-*   `opts` **[Object][2]** Options, same as in `Component.append()` (optional, default `{}`)
+- `components` **(Component | [Array][5]\<Component> | [String][1])?** Component Definitions or HTML string
+- `opts` **[Object][2]** Options, same as in `Component.append()` (optional, default `{}`)
 
 ### Examples
 
@@ -483,7 +483,7 @@ If exists, returns the child component at specific index.
 
 ### Parameters
 
-*   `index` **[Number][9]** Index of the component to return
+- `index` **[Number][9]** Index of the component to return
 
 ### Examples
 
@@ -512,11 +512,11 @@ Returns **([Component] | null)**&#x20;
 
 Remove all inner components
 
-*   @return {this}
+- @return {this}
 
 ### Parameters
 
-*   `opts`   (optional, default `{}`)
+- `opts` (optional, default `{}`)
 
 ## parent
 
@@ -524,7 +524,7 @@ Get the parent component, if exists
 
 ### Parameters
 
-*   `opts` **any**  (optional, default `{}`)
+- `opts` **any** (optional, default `{}`)
 
 ### Examples
 
@@ -561,7 +561,7 @@ Replace current collection of traits with a new one.
 
 ### Parameters
 
-*   `traits` **[Array][5]<[Object][2]>** Array of trait definitions
+- `traits` **[Array][5]<[Object][2]>** Array of trait definitions
 
 ### Examples
 
@@ -579,7 +579,7 @@ Get the trait by id/name.
 
 ### Parameters
 
-*   `id` **[String][1]** The `id` or `name` of the trait
+- `id` **[String][1]** The `id` or `name` of the trait
 
 ### Examples
 
@@ -596,15 +596,15 @@ Update a trait.
 
 ### Parameters
 
-*   `id` **[String][1]** The `id` or `name` of the trait
-*   `props` **[Object][2]** Object with the props to update
+- `id` **[String][1]** The `id` or `name` of the trait
+- `props` **[Object][2]** Object with the props to update
 
 ### Examples
 
 ```javascript
 component.updateTrait('title', {
- type: 'select',
- options: [ 'Option 1', 'Option 2' ],
+  type: 'select',
+  options: ['Option 1', 'Option 2'],
 });
 ```
 
@@ -617,7 +617,7 @@ replace some trait, at runtime, with something else.
 
 ### Parameters
 
-*   `id` **[String][1]** The `id` or `name` of the trait
+- `id` **[String][1]** The `id` or `name` of the trait
 
 ### Examples
 
@@ -634,7 +634,7 @@ Remove trait/s by id/s.
 
 ### Parameters
 
-*   `id` **([String][1] | [Array][5]<[String][1]>)** The `id`/`name` of the trait (or an array)
+- `id` **([String][1] | [Array][5]<[String][1]>)** The `id`/`name` of the trait (or an array)
 
 ### Examples
 
@@ -651,8 +651,8 @@ Add new trait/s.
 
 ### Parameters
 
-*   `trait` **([String][1] | [Object][2] | [Array][5]<([String][1] | [Object][2])>)** Trait to add (or an array of traits)
-*   `opts` **Options** Options for the add (optional, default `{}`)
+- `trait` **([String][1] | [Object][2] | [Array][5]<([String][1] | [Object][2])>)** Trait to add (or an array of traits)
+- `opts` **Options** Options for the add (optional, default `{}`)
 
 ### Examples
 
@@ -673,9 +673,9 @@ Get the name of the component.
 
 ### Parameters
 
-*   `opts` **[Object][2]** Options (optional, default `{}`)
+- `opts` **[Object][2]** Options (optional, default `{}`)
 
-    *   `opts.noCustom` **[Boolean][3]?** Avoid custom name assigned to the component.
+  - `opts.noCustom` **[Boolean][3]?** Avoid custom name assigned to the component.
 
 Returns **[String][1]**&#x20;
 
@@ -685,8 +685,8 @@ Update component name.
 
 ### Parameters
 
-*   `name` **[String][1]** New name.
-*   `opts` **SetOptions**  (optional, default `{}`)
+- `name` **[String][1]** New name.
+- `opts` **SetOptions** (optional, default `{}`)
 
 ## getIcon
 
@@ -700,12 +700,12 @@ Return HTML string of the component
 
 ### Parameters
 
-*   `opts` **[Object][2]** Options (optional, default `{}`)
+- `opts` **[Object][2]** Options (optional, default `{}`)
 
-    *   `opts.tag` **[String][1]?** Custom tagName
-    *   `opts.attributes` **([Object][2] | [Function][4])** You can pass an object of custom attributes to replace with the current ones or you can even pass a function to generate attributes dynamically. (optional, default `null`)
-    *   `opts.withProps` **[Boolean][3]?** Include component properties as `data-gjs-*` attributes. This allows you to have re-importable HTML.
-    *   `opts.altQuoteAttr` **[Boolean][3]?** In case the attribute value contains a `"` char, instead of escaping it (`attr="value &quot;"`), the attribute will be quoted using single quotes (`attr='value "'`).
+  - `opts.tag` **[String][1]?** Custom tagName
+  - `opts.attributes` **([Object][2] | [Function][4])** You can pass an object of custom attributes to replace with the current ones or you can even pass a function to generate attributes dynamically. (optional, default `null`)
+  - `opts.withProps` **[Boolean][3]?** Include component properties as `data-gjs-*` attributes. This allows you to have re-importable HTML.
+  - `opts.altQuoteAttr` **[Boolean][3]?** In case the attribute value contains a `"` char, instead of escaping it (`attr="value &quot;"`), the attribute will be quoted using single quotes (`attr='value "'`).
 
 ### Examples
 
@@ -722,12 +722,12 @@ component.toHTML({ attributes: { 'data-test': 'Hello' } });
 
 // Custom dynamic attributes
 component.toHTML({
- attributes(component, attributes) {
-   if (component.get('tagName') == 'span') {
-     attributes.title = 'Custom attribute';
-   }
-   return attributes;
- },
+  attributes(component, attributes) {
+    if (component.get('tagName') == 'span') {
+      attributes.title = 'Custom attribute';
+    }
+    return attributes;
+  },
 });
 // -> <span title="Custom attribute"></span>
 ```
@@ -740,7 +740,7 @@ Get inner HTML of the component
 
 ### Parameters
 
-*   `opts` **[Object][2]** Same options of `toHTML` (optional, default `{}`)
+- `opts` **[Object][2]** Same options of `toHTML` (optional, default `{}`)
 
 Returns **[String][1]** HTML string
 
@@ -750,7 +750,7 @@ Return an object containing only changed props
 
 ### Parameters
 
-*   `res` **Partial\<ComponentDefinition>**&#x20;
+- `res` **Partial\<ComponentDefinition>**&#x20;
 
 Returns **Partial\<ComponentDefinition>**&#x20;
 
@@ -766,8 +766,8 @@ Set new id on the component
 
 ### Parameters
 
-*   `id` **[String][1]**&#x20;
-*   `opts` **any?**&#x20;
+- `id` **[String][1]**&#x20;
+- `opts` **any?**&#x20;
 
 Returns **this**&#x20;
 
@@ -778,7 +778,7 @@ This works only if the component is already rendered
 
 ### Parameters
 
-*   `frame` **Frame** Specific frame from which taking the element
+- `frame` **Frame** Specific frame from which taking the element
 
 Returns **[HTMLElement][12]**&#x20;
 
@@ -789,7 +789,7 @@ This works only if the component is already rendered
 
 ### Parameters
 
-*   `frame` **Frame** Get View of a specific frame
+- `frame` **Frame** Get View of a specific frame
 
 Returns **ComponentView**&#x20;
 
@@ -799,14 +799,14 @@ Execute callback function on itself and all inner components
 
 ### Parameters
 
-*   `clb` **[Function][4]** Callback function, the model is passed as an argument
+- `clb` **[Function][4]** Callback function, the model is passed as an argument
 
 ### Examples
 
 ```javascript
-component.onAll(component => {
- // do something with component
-})
+component.onAll((component) => {
+  // do something with component
+});
 ```
 
 Returns **this**&#x20;
@@ -817,14 +817,14 @@ Execute a callback function on all inner child components.
 
 ### Parameters
 
-*   `clb` **[Function][4]** Callback function, the child component is passed as an argument
+- `clb` **[Function][4]** Callback function, the child component is passed as an argument
 
 ### Examples
 
 ```javascript
-component.forEachChild(child => {
- console.log(child)
-})
+component.forEachChild((child) => {
+  console.log(child);
+});
 ```
 
 ## remove
@@ -833,7 +833,7 @@ Remove the component
 
 ### Parameters
 
-*   `opts` **any**  (optional, default `{}`)
+- `opts` **any** (optional, default `{}`)
 
 Returns **this**&#x20;
 
@@ -843,8 +843,8 @@ Move the component to another destination component
 
 ### Parameters
 
-*   `component` **Component** Destination component (so the current one will be appended as a child)
-*   `opts` **[Object][2]** Options for the append action (optional, default `{}`)
+- `component` **Component** Destination component (so the current one will be appended as a child)
+- `opts` **[Object][2]** Options for the append action (optional, default `{}`)
 
 ### Examples
 
@@ -862,7 +862,7 @@ Check if the component is an instance of some component type.
 
 ### Parameters
 
-*   `type` **[String][1]** Component type
+- `type` **[String][1]** Component type
 
 ### Examples
 
@@ -883,15 +883,15 @@ Check if the component is a child of some other component (or component type)
 
 ### Parameters
 
-*   `component` **([Component] | [String][1])** Component parent to check. In case a string is passed,
-    the check will be performed on the component type.
+- `component` **([Component] | [String][1])** Component parent to check. In case a string is passed,
+  the check will be performed on the component type.
 
 ### Examples
 
 ```javascript
 const newTextComponent = editor.getSelected().append({
- type: 'text',
- components: 'My text <b>here</b>',
+  type: 'text',
+  components: 'My text <b>here</b>',
 })[0];
 const innerComponent = newTextComponent.find('b')[0];
 innerComponent.isChildOf(newTextComponent); // true
@@ -901,25 +901,14 @@ innerComponent.isChildOf('text'); // true
 Returns **[Boolean][3]**&#x20;
 
 [1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
 [2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-
 [3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
-
 [4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
-
 [5]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
-
 [6]: https://github.com/GrapesJS/grapesjs/blob/master/src/utils/Resizer.ts
-
 [7]: /modules/Components-js.html
-
 [8]: /modules/Traits.html
-
 [9]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
-
 [10]: https://github.com/GrapesJS/grapesjs/issues/1936
-
 [11]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined
-
 [12]: https://developer.mozilla.org/docs/Web/HTML/Element

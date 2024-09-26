@@ -6,10 +6,10 @@ With this module is possible to manage components inside the canvas. You can cus
 
 ```js
 const editor = grapesjs.init({
- domComponents: {
-   // options
- }
-})
+  domComponents: {
+    // options
+  },
+});
 ```
 
 Once the editor is instantiated you can use its API and listen to its events. Before using these methods, you should get the module from the instance.
@@ -25,43 +25,43 @@ cmp.addType(...);
 
 ## Available Events
 
-*   `component:create` - Component is created (only the model, is not yet mounted in the canvas), called after the init() method
-*   `component:mount` - Component is mounted to an element and rendered in canvas
-*   `component:add` - Triggered when a new component is added to the editor, the model is passed as an argument to the callback
-*   `component:remove` - Triggered when a component is removed, the model is passed as an argument to the callback
-*   `component:remove:before` - Triggered before the remove of the component, the model, remove function (if aborted via options, with this function you can complete the remove) and options (use options.abort = true to prevent remove), are passed as arguments to the callback
-*   `component:clone` - Triggered when a component is cloned, the new model is passed as an argument to the callback
-*   `component:update` - Triggered when a component is updated (moved, styled, etc.), the model is passed as an argument to the callback
-*   `component:update:{propertyName}` - Listen any property change, the model is passed as an argument to the callback
-*   `component:styleUpdate` - Triggered when the style of the component is updated, the model is passed as an argument to the callback
-*   `component:styleUpdate:{propertyName}` - Listen for a specific style property change, the model is passed as an argument to the callback
-*   `component:selected` - New component selected, the selected model is passed as an argument to the callback
-*   `component:deselected` - Component deselected, the deselected model is passed as an argument to the callback
-*   `component:toggled` - Component selection changed, toggled model is passed as an argument to the callback
-*   `component:type:add` - New component type added, the new type is passed as an argument to the callback
-*   `component:type:update` - Component type updated, the updated type is passed as an argument to the callback
-*   `component:drag:start` - Component drag started. Passed an object, to the callback, containing the `target` (component to drag), `parent` (parent of the component) and `index` (component index in the parent)
-*   `component:drag` - During component drag. Passed the same object as in `component:drag:start` event, but in this case, `parent` and `index` are updated by the current pointer
-*   `component:drag:end` - Component drag ended. Passed the same object as in `component:drag:start` event, but in this case, `parent` and `index` are updated by the final pointer
-*   `component:resize` - During component resize.
+- `component:create` - Component is created (only the model, is not yet mounted in the canvas), called after the init() method
+- `component:mount` - Component is mounted to an element and rendered in canvas
+- `component:add` - Triggered when a new component is added to the editor, the model is passed as an argument to the callback
+- `component:remove` - Triggered when a component is removed, the model is passed as an argument to the callback
+- `component:remove:before` - Triggered before the remove of the component, the model, remove function (if aborted via options, with this function you can complete the remove) and options (use options.abort = true to prevent remove), are passed as arguments to the callback
+- `component:clone` - Triggered when a component is cloned, the new model is passed as an argument to the callback
+- `component:update` - Triggered when a component is updated (moved, styled, etc.), the model is passed as an argument to the callback
+- `component:update:{propertyName}` - Listen any property change, the model is passed as an argument to the callback
+- `component:styleUpdate` - Triggered when the style of the component is updated, the model is passed as an argument to the callback
+- `component:styleUpdate:{propertyName}` - Listen for a specific style property change, the model is passed as an argument to the callback
+- `component:selected` - New component selected, the selected model is passed as an argument to the callback
+- `component:deselected` - Component deselected, the deselected model is passed as an argument to the callback
+- `component:toggled` - Component selection changed, toggled model is passed as an argument to the callback
+- `component:type:add` - New component type added, the new type is passed as an argument to the callback
+- `component:type:update` - Component type updated, the updated type is passed as an argument to the callback
+- `component:drag:start` - Component drag started. Passed an object, to the callback, containing the `target` (component to drag), `parent` (parent of the component) and `index` (component index in the parent)
+- `component:drag` - During component drag. Passed the same object as in `component:drag:start` event, but in this case, `parent` and `index` are updated by the current pointer
+- `component:drag:end` - Component drag ended. Passed the same object as in `component:drag:start` event, but in this case, `parent` and `index` are updated by the final pointer
+- `component:resize` - During component resize.
 
 ## Methods
 
-*   [getWrapper][2]
+- [getWrapper][2]
 
-*   [getComponents][3]
+- [getComponents][3]
 
-*   [addComponent][4]
+- [addComponent][4]
 
-*   [clear][5]
+- [clear][5]
 
-*   [addType][6]
+- [addType][6]
 
-*   [getType][7]
+- [getType][7]
 
-*   [getTypes][8]
+- [getTypes][8]
 
-*   [Component]: component.html
+- [Component]: component.html
 
 ## getWrapper
 
@@ -73,8 +73,8 @@ The wrapper doesn't differ from the original Component Model
 ```javascript
 // Change background of the wrapper and set some attribute
 var wrapper = cmp.getWrapper();
-wrapper.set('style', {'background-color': 'red'});
-wrapper.set('attributes', {'title': 'Hello!'});
+wrapper.set('style', { 'background-color': 'red' });
+wrapper.set('attributes', { title: 'Hello!' });
 ```
 
 Returns **[Component]** Root Component
@@ -91,21 +91,18 @@ components inside and you can nest them as more as you wish.
 // Let's add some component
 var wrapperChildren = cmp.getComponents();
 var comp1 = wrapperChildren.add({
-  style: { 'background-color': 'red'}
+  style: { 'background-color': 'red' },
 });
 var comp2 = wrapperChildren.add({
   tagName: 'span',
-  attributes: { title: 'Hello!'}
+  attributes: { title: 'Hello!' },
 });
 // Now let's add an other one inside first component
 // First we have to get the collection inside. Each
 // component has 'components' property
 var comp1Children = comp1.get('components');
 // Procede as before. You could also add multiple objects
-comp1Children.add([
-  { style: { 'background-color': 'blue'}},
-  { style: { height: '100px', width: '100px'}}
-]);
+comp1Children.add([{ style: { 'background-color': 'blue' } }, { style: { height: '100px', width: '100px' } }]);
 // Remove comp2
 wrapperChildren.remove(comp2);
 ```
@@ -119,20 +116,21 @@ as 'cmp.getComponents().add(...)'
 
 ### Parameters
 
-*   `component` **([Object][10] | [Component] | [Array][11]<[Object][10]>)** Component/s to add
+- `component` **([Object][10] | [Component] | [Array][11]<[Object][10]>)** Component/s to add
 
-    *   `component.tagName` **[string][12]** Tag name (optional, default `'div'`)
-    *   `component.type` **[string][12]** Type of the component. Available: ''(default), 'text', 'image' (optional, default `''`)
-    *   `component.removable` **[boolean][13]** If component is removable (optional, default `true`)
-    *   `component.draggable` **[boolean][13]** If is possible to move the component around the structure (optional, default `true`)
-    *   `component.droppable` **[boolean][13]** If is possible to drop inside other components (optional, default `true`)
-    *   `component.badgable` **[boolean][13]** If the badge is visible when the component is selected (optional, default `true`)
-    *   `component.stylable` **[boolean][13]** If is possible to style component (optional, default `true`)
-    *   `component.copyable` **[boolean][13]** If is possible to copy\&paste the component (optional, default `true`)
-    *   `component.content` **[string][12]** String inside component (optional, default `''`)
-    *   `component.style` **[Object][10]** Style object (optional, default `{}`)
-    *   `component.attributes` **[Object][10]** Attribute object (optional, default `{}`)
-*   `opt` **[Object][10]** the options object to be used by the \[Components.add][getComponents][14] method (optional, default `{}`)
+  - `component.tagName` **[string][12]** Tag name (optional, default `'div'`)
+  - `component.type` **[string][12]** Type of the component. Available: ''(default), 'text', 'image' (optional, default `''`)
+  - `component.removable` **[boolean][13]** If component is removable (optional, default `true`)
+  - `component.draggable` **[boolean][13]** If is possible to move the component around the structure (optional, default `true`)
+  - `component.droppable` **[boolean][13]** If is possible to drop inside other components (optional, default `true`)
+  - `component.badgable` **[boolean][13]** If the badge is visible when the component is selected (optional, default `true`)
+  - `component.stylable` **[boolean][13]** If is possible to style component (optional, default `true`)
+  - `component.copyable` **[boolean][13]** If is possible to copy\&paste the component (optional, default `true`)
+  - `component.content` **[string][12]** String inside component (optional, default `''`)
+  - `component.style` **[Object][10]** Style object (optional, default `{}`)
+  - `component.attributes` **[Object][10]** Attribute object (optional, default `{}`)
+
+- `opt` **[Object][10]** the options object to be used by the \[Components.add][getComponents][14] method (optional, default `{}`)
 
 ### Examples
 
@@ -144,8 +142,8 @@ var comp1 = cmp.addComponent({
   draggable: true, // Can't move it
   copyable: true, // Disable copy/past
   content: 'Content text', // Text inside component
-  style: { color: 'red'},
-  attributes: { title: 'here' }
+  style: { color: 'red' },
+  attributes: { title: 'here' },
 });
 ```
 
@@ -157,7 +155,7 @@ Remove all components
 
 ### Parameters
 
-*   `opts`   (optional, default `{}`)
+- `opts` (optional, default `{}`)
 
 Returns **this**&#x20;
 
@@ -168,8 +166,8 @@ Read more about this in [Define New Component][15]
 
 ### Parameters
 
-*   `type` **[string][12]** Component ID
-*   `methods` **[Object][10]** Component methods
+- `type` **[string][12]** Component ID
+- `methods` **[Object][10]** Component methods
 
 Returns **this**&#x20;
 
@@ -180,7 +178,7 @@ Read more about this in [Define New Component][15]
 
 ### Parameters
 
-*   `type` **[string][12]** Component ID
+- `type` **[string][12]** Component ID
 
 Returns **[Object][10]** Component type definition, eg. `{ model: ..., view: ... }`
 
@@ -190,8 +188,8 @@ Remove component type
 
 ### Parameters
 
-*   `id` **[string][12]**&#x20;
-*   `type` **[string][12]** Component ID
+- `id` **[string][12]**&#x20;
+- `type` **[string][12]** Component ID
 
 Returns **([Object][10] | [undefined][16])** Removed component type, undefined otherwise
 
@@ -207,7 +205,7 @@ Check if the object is a \[Component].
 
 ### Parameters
 
-*   `obj` **[Object][10]**&#x20;
+- `obj` **[Object][10]**&#x20;
 
 ### Examples
 
@@ -227,7 +225,7 @@ If the passed component is the main symbol, a new instance will be created and r
 
 ### Parameters
 
-*   `component` **[Component]** Component from which create a symbol.
+- `component` **[Component]** Component from which create a symbol.
 
 ### Examples
 
@@ -260,7 +258,7 @@ The passed symbol instance will become a regular component.
 
 ### Parameters
 
-*   `component` **[Component]** The component symbol to detach.
+- `component` **[Component]** The component symbol to detach.
 
 ### Examples
 
@@ -277,8 +275,8 @@ Get info about the symbol.
 
 ### Parameters
 
-*   `component` **[Component]** Component symbol from which to get the info.
-*   `opts` **{withChanges: [string][12]?}**  (optional, default `{}`)
+- `component` **[Component]** Component symbol from which to get the info.
+- `opts` **{withChanges: [string][12]?}** (optional, default `{}`)
 
 ### Examples
 
@@ -295,9 +293,9 @@ Check if a component can be moved inside another one.
 
 ### Parameters
 
-*   `target` **[Component]** The target component is the one that is supposed to receive the source one.
-*   `source` **([Component] | [String][12])** The source can be another component, a component definition or an HTML string.
-*   `index` **[Number][17]?** Index position, if not specified, the check will be performed against appending the source to the target.
+- `target` **[Component]** The target component is the one that is supposed to receive the source one.
+- `source` **([Component] | [String][12])** The source can be another component, a component definition or an HTML string.
+- `index` **[Number][17]?** Index position, if not specified, the check will be performed against appending the source to the target.
 
 ### Examples
 
@@ -315,40 +313,25 @@ editor.Components.canMove(rootComponent, { tagName: 'a', draggable: false });
 editor.Components.canMove(rootComponent, '<form>...</form>');
 ```
 
-Returns **[Object][10]** Object containing the `result` (Boolean), `source`, `target` (as Components), and a `reason` (Number) with these meanings:*   `0` - Invalid source. This is a default value and should be ignored in case the `result` is true.
-*   `1` - Source doesn't accept target as destination.
-*   `2` - Target doesn't accept source.
+Returns **[Object][10]** Object containing the `result` (Boolean), `source`, `target` (as Components), and a `reason` (Number) with these meanings:\* `0` - Invalid source. This is a default value and should be ignored in case the `result` is true.
+
+- `1` - Source doesn't accept target as destination.
+- `2` - Target doesn't accept source.
 
 [1]: https://github.com/GrapesJS/grapesjs/blob/master/src/dom_components/config/config.ts
-
 [2]: #getwrapper
-
 [3]: #getcomponents
-
 [4]: #addcomponent
-
 [5]: #clear
-
 [6]: #addtype
-
 [7]: #gettype
-
 [8]: #gettypes
-
 [9]: #components
-
 [10]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-
 [11]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
-
 [12]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
 [13]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
-
 [14]: getComponents
-
 [15]: https://grapesjs.com/docs/modules/Components.html#define-new-component
-
 [16]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined
-
 [17]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number

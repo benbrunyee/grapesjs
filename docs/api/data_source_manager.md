@@ -16,11 +16,11 @@ Once the editor is instantiated, you can use the following API to manage data so
 const dsm = editor.DataSources;
 ```
 
-*   [add][1] - Add a new data source.
-*   [get][2] - Retrieve a data source by its ID.
-*   [getAll][3] - Retrieve all data sources.
-*   [remove][4] - Remove a data source by its ID.
-*   [clear][5] - Remove all data sources.
+- [add][1] - Add a new data source.
+- [get][2] - Retrieve a data source by its ID.
+- [getAll][3] - Retrieve all data sources.
+- [remove][4] - Remove a data source by its ID.
+- [clear][5] - Remove all data sources.
 
 Example of adding a data source:
 
@@ -29,14 +29,14 @@ const ds = dsm.add({
   id: 'my_data_source_id',
   records: [
     { id: 'id1', name: 'value1' },
-    { id: 'id2', name: 'value2' }
-  ]
+    { id: 'id2', name: 'value2' },
+  ],
 });
 ```
 
 ### Parameters
 
-*   `em` **EditorModel** Editor model.
+- `em` **EditorModel** Editor model.
 
 ## add
 
@@ -44,18 +44,18 @@ Add new data source.
 
 ### Parameters
 
-*   `props` **[Object][6]** Data source properties.
-*   `opts` **AddOptions**  (optional, default `{}`)
+- `props` **[Object][6]** Data source properties.
+- `opts` **AddOptions** (optional, default `{}`)
 
 ### Examples
 
 ```javascript
 const ds = dsm.add({
- id: 'my_data_source_id',
- records: [
-   { id: 'id1', name: 'value1' },
-   { id: 'id2', name: 'value2' }
- ]
+  id: 'my_data_source_id',
+  records: [
+    { id: 'id1', name: 'value1' },
+    { id: 'id2', name: 'value2' },
+  ],
 });
 ```
 
@@ -67,7 +67,7 @@ Get data source.
 
 ### Parameters
 
-*   `id` **[String][7]** Data source id.
+- `id` **[String][7]** Data source id.
 
 ### Examples
 
@@ -83,10 +83,10 @@ Get value from data sources by key
 
 ### Parameters
 
-*   `key` **[String][7]** Path to value.
-*   `defValue` **any**&#x20;
+- `key` **[String][7]** Path to value.
+- `defValue` **any**&#x20;
 
-Returns **any** const value = dsm.getValue('ds\_id.record\_id.propName', 'defaultValue');
+Returns **any** const value = dsm.getValue('ds_id.record_id.propName', 'defaultValue');
 
 ## remove
 
@@ -94,8 +94,8 @@ Remove data source.
 
 ### Parameters
 
-*   `id` **([String][7] | [DataSource])** Id of the data source.
-*   `opts` **RemoveOptions?**&#x20;
+- `id` **([String][7] | [DataSource])** Id of the data source.
+- `opts` **RemoveOptions?**&#x20;
 
 ### Examples
 
@@ -114,7 +114,7 @@ The method is useful for accessing nested data within data sources.
 
 ### Parameters
 
-*   `path` **[String][7]** The string path in the format 'dataSourceId.recordId.property'.
+- `path` **[String][7]** The string path in the format 'dataSourceId.recordId.property'.
 
 ### Examples
 
@@ -138,20 +138,14 @@ Load data sources from a JSON object.
 
 ### Parameters
 
-*   `data` **[Object][6]** The data object containing data sources.
+- `data` **[Object][6]** The data object containing data sources.
 
 Returns **[Object][6]** Loaded data sources.
 
 [1]: #add
-
 [2]: #get
-
 [3]: #getall
-
 [4]: #remove
-
 [5]: #clear
-
 [6]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-
 [7]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String

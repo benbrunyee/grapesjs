@@ -6,10 +6,10 @@
 
 ### Properties
 
-*   `units` **[Array][1]<[String][2]>** Array of units, eg. `['px', '%']`
-*   `min` **[Number][3]** Minimum value.
-*   `max` **[Number][3]** Maximum value.
-*   `step` **[Number][3]** Step value.
+- `units` **[Array][1]<[String][2]>** Array of units, eg. `['px', '%']`
+- `min` **[Number][3]** Minimum value.
+- `max` **[Number][3]** Maximum value.
+- `step` **[Number][3]** Step value.
 
 ### getUnits
 
@@ -48,19 +48,15 @@ The change is also propagated to the selected targets.
 
 #### Parameters
 
-*   `unit` **[String][2]** New unit value
-*   `opts` **[Object][4]** Options (optional, default `{}`)
+- `unit` **[String][2]** New unit value
+- `opts` **[Object][4]** Options (optional, default `{}`)
 
-    *   `opts.noTarget` **[Boolean][5]** If `true` the change won't be propagated to selected targets. (optional, default `false`)
+  - `opts.noTarget` **[Boolean][5]** If `true` the change won't be propagated to selected targets. (optional, default `false`)
 
 Returns **[String][2]**&#x20;
 
 [1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
-
 [2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
 [3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
-
 [4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-
 [5]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean

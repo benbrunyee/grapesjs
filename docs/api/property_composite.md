@@ -8,31 +8,31 @@
 
 ### Properties
 
-*   `properties` **[Array][1]<[Object][2]>** Array of sub properties, eg. `[{ type: 'number', property: 'margin-top' }, ...]`
-*   `detached` **[Boolean][3]?** Indicate if the final CSS property is splitted (detached: `margin-top: X; margin-right: Y; ...`) or combined (not detached: `margin: X Y ...;`)
-*   `separator` **([String][4] | [RegExp][5])?** Value used to split property values, default `" "`.
-*   `join` **[String][4]?** Value used to join property values, default `" "`.
-*   `fromStyle` **[Function][6]?** Custom logic for getting property values from the target style object.
-    ```js
-     fromStyle: (style) => {
-       const margins = parseMarginShorthand(style.margin);
-       return {
-         'margin-top': margins.top,
-         // ...
-       };
-     }
-    ```
-*   `toStyle` **[Function][6]?** Custom logic for creating the CSS style object to apply on selected targets.
-    ```js
-     toStyle: (values) => {
-       const top = values['margin-top'] || 0;
-       const right = values['margin-right'] || 0;
-       // ...
-       return {
-         margin: `${top} ${right} ...`,
-       };
-     }
-    ```
+- `properties` **[Array][1]<[Object][2]>** Array of sub properties, eg. `[{ type: 'number', property: 'margin-top' }, ...]`
+- `detached` **[Boolean][3]?** Indicate if the final CSS property is splitted (detached: `margin-top: X; margin-right: Y; ...`) or combined (not detached: `margin: X Y ...;`)
+- `separator` **([String][4] | [RegExp][5])?** Value used to split property values, default `" "`.
+- `join` **[String][4]?** Value used to join property values, default `" "`.
+- `fromStyle` **[Function][6]?** Custom logic for getting property values from the target style object.
+  ```js
+  fromStyle: (style) => {
+    const margins = parseMarginShorthand(style.margin);
+    return {
+      'margin-top': margins.top,
+      // ...
+    };
+  };
+  ```
+- `toStyle` **[Function][6]?** Custom logic for creating the CSS style object to apply on selected targets.
+  ```js
+  toStyle: (values) => {
+    const top = values['margin-top'] || 0;
+    const right = values['margin-right'] || 0;
+    // ...
+    return {
+      margin: `${top} ${right} ...`,
+    };
+  };
+  ```
 
 ### getProperties
 
@@ -46,7 +46,7 @@ Get property by id.
 
 #### Parameters
 
-*   `id` **[String][4]** Property id.
+- `id` **[String][4]** Property id.
 
 Returns **([Property] | null)**&#x20;
 
@@ -56,7 +56,7 @@ Get property at index.
 
 #### Parameters
 
-*   `index` **[Number][7]**&#x20;
+- `index` **[Number][7]**&#x20;
 
 Returns **([Property] | null)**&#x20;
 
@@ -72,9 +72,9 @@ Get current values of properties.
 
 #### Parameters
 
-*   `opts` **[Object][2]** Options (optional, default `{}`)
+- `opts` **[Object][2]** Options (optional, default `{}`)
 
-    *   `opts.byName` **[Boolean][3]** Use property names as a key instead of the id. (optional, default `false`)
+  - `opts.byName` **[Boolean][3]** Use property names as a key instead of the id. (optional, default `false`)
 
 #### Examples
 
@@ -99,15 +99,9 @@ Get the join value.
 Returns **[String][4]**&#x20;
 
 [1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
-
 [2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-
 [3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
-
 [4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
 [5]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/RegExp
-
 [6]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
-
 [7]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number

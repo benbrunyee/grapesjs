@@ -8,26 +8,26 @@
 
 ### Properties
 
-*   `preview` **[Boolean][1]?** Indicate if the layer should display a preview.
-*   `layerSeparator` **([String][2] | [RegExp][3])?** The separator used to split layer values.
-*   `layerJoin` **[String][2]?** Value used to join layer values.
-*   `layerLabel` **[Function][4]?** Custom logic for creating layer labels.
-    ```js
-     layerLabel: (layer) => {
-       const values = layer.getValues();
-       return `A: ${values['prop-a']} B: ${values['prop-b']}`;
-     }
-    ```
-*   `emptyValue` **([String][2] | [Function][4])?** Empty value to apply when all layers are removed.
-    ```js
-     // use simple string
-     emptyValue: 'inherit',
-     // or a function for a custom style object
-     emptyValue: () => ({
-       color: 'unset',
-       width: 'auto'
-     }),
-    ```
+- `preview` **[Boolean][1]?** Indicate if the layer should display a preview.
+- `layerSeparator` **([String][2] | [RegExp][3])?** The separator used to split layer values.
+- `layerJoin` **[String][2]?** Value used to join layer values.
+- `layerLabel` **[Function][4]?** Custom logic for creating layer labels.
+  ```js
+  layerLabel: (layer) => {
+    const values = layer.getValues();
+    return `A: ${values['prop-a']} B: ${values['prop-b']}`;
+  };
+  ```
+- `emptyValue` **([String][2] | [Function][4])?** Empty value to apply when all layers are removed.
+  ```js
+   // use simple string
+   emptyValue: 'inherit',
+   // or a function for a custom style object
+   emptyValue: () => ({
+     color: 'unset',
+     width: 'auto'
+   }),
+  ```
 
 ### getLayers
 
@@ -47,7 +47,7 @@ Get layer by index.
 
 #### Parameters
 
-*   `index` **[Number][6]** Layer index position. (optional, default `0`)
+- `index` **[Number][6]** Layer index position. (optional, default `0`)
 
 #### Examples
 
@@ -74,7 +74,7 @@ Without a selected layer any update made on inner properties has no effect.
 
 #### Parameters
 
-*   `layer` **[Layer]** Layer to select
+- `layer` **[Layer]** Layer to select
 
 #### Examples
 
@@ -89,7 +89,7 @@ Select layer by index.
 
 #### Parameters
 
-*   `index` **[Number][6]** Index of the layer to select. (optional, default `0`)
+- `index` **[Number][6]** Index of the layer to select. (optional, default `0`)
 
 #### Examples
 
@@ -103,8 +103,8 @@ Move layer by index.
 
 #### Parameters
 
-*   `layer` **[Layer]** Layer to move.
-*   `index` **[Number][6]** New layer index. (optional, default `0`)
+- `layer` **[Layer]** Layer to move.
+- `index` **[Number][6]** New layer index. (optional, default `0`)
 
 #### Examples
 
@@ -119,10 +119,10 @@ Add new layer to the stack.
 
 #### Parameters
 
-*   `props` **[Object][8]** Custom property values to use in a new layer. (optional, default `{}`)
-*   `opts` **[Object][8]** Options (optional, default `{}`)
+- `props` **[Object][8]** Custom property values to use in a new layer. (optional, default `{}`)
+- `opts` **[Object][8]** Options (optional, default `{}`)
 
-    *   `opts.at` **[Number][6]?** Position index (by default the layer will be appended at the end).
+  - `opts.at` **[Number][6]?** Position index (by default the layer will be appended at the end).
 
 #### Examples
 
@@ -139,7 +139,7 @@ Remove layer.
 
 #### Parameters
 
-*   `layer` **[Layer]** Layer to remove.
+- `layer` **[Layer]** Layer to remove.
 
 #### Examples
 
@@ -156,7 +156,7 @@ Remove layer by index.
 
 #### Parameters
 
-*   `index` **[Number][6]** Index of the layer to remove (optional, default `0`)
+- `index` **[Number][6]** Index of the layer to remove (optional, default `0`)
 
 #### Examples
 
@@ -172,7 +172,7 @@ Get the layer label. The label can be customized with the `layerLabel` property.
 
 #### Parameters
 
-*   `layer` **[Layer]**&#x20;
+- `layer` **[Layer]**&#x20;
 
 #### Examples
 
@@ -189,11 +189,11 @@ Get style object from the layer.
 
 #### Parameters
 
-*   `layer` **[Layer]**&#x20;
-*   `opts` **[Object][8]** Options (optional, default `{}`)
+- `layer` **[Layer]**&#x20;
+- `opts` **[Object][8]** Options (optional, default `{}`)
 
-    *   `opts.camelCase` **[Boolean][1]?** Return property names in camelCase.
-    *   `opts.number` **[Object][8]?** Limit the result of the number types, eg. `number: { min: -3, max: 3 }`
+  - `opts.camelCase` **[Boolean][1]?** Return property names in camelCase.
+  - `opts.number` **[Object][8]?** Limit the result of the number types, eg. `number: { min: -3, max: 3 }`
 
 Returns **[Object][8]** Style object
 
@@ -204,8 +204,8 @@ If the property has `preview: false` the returned object will be empty.
 
 #### Parameters
 
-*   `layer` **[Layer]**&#x20;
-*   `opts` **[Object][8]** Options. Same of `getStyleFromLayer` (optional, default `{}`)
+- `layer` **[Layer]**&#x20;
+- `opts` **[Object][8]** Options. Same of `getStyleFromLayer` (optional, default `{}`)
 
 Returns **[Object][8]** Style object
 
@@ -222,17 +222,10 @@ Check if the property is with an empty value.
 Returns **[Boolean][1]**&#x20;
 
 [1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
-
 [2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
 [3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/RegExp
-
 [4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
-
 [5]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
-
 [6]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
-
 [7]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined
-
 [8]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object

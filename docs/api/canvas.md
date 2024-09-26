@@ -6,10 +6,10 @@ You can customize the initial state of the module from the editor initialization
 
 ```js
 const editor = grapesjs.init({
- canvas: {
-   // options
- }
-})
+  canvas: {
+    // options
+  },
+});
 ```
 
 Once the editor is instantiated you can use its API and listen to its events. Before using these methods, you should get the module from the instance.
@@ -24,118 +24,122 @@ canvas.setCoords(...);
 ```
 
 ## Available Events
-* `canvas:dragenter` Something is dragged inside the canvas, `DataTransfer` instance passed as an argument.
 
-* `canvas:dragover` Something is dragging on the canvas, `DataTransfer` instance passed as an argument.
+- `canvas:dragenter` Something is dragged inside the canvas, `DataTransfer` instance passed as an argument.
 
-* `canvas:dragend` When a drag operation is ended, `DataTransfer` instance passed as an argument.
+- `canvas:dragover` Something is dragging on the canvas, `DataTransfer` instance passed as an argument.
+
+- `canvas:dragend` When a drag operation is ended, `DataTransfer` instance passed as an argument.
 
 `canvas:dragdata` On any dataTransfer parse, `DataTransfer` instance and the `result` are passed as arguments.
 By changing `result.content` you're able to customize what is dropped.
-------------------------------------------------------------------------
 
-* `canvas:drop` Something is dropped in canvas, `DataTransfer` instance and the dropped model are passed as arguments.
+---
 
-* `canvas:spot` Spots updated.
+- `canvas:drop` Something is dropped in canvas, `DataTransfer` instance and the dropped model are passed as arguments.
+
+- `canvas:spot` Spots updated.
 
 ```javascript
 editor.on('canvas:spot', () => {
- console.log('Spots', editor.Canvas.getSpots());
+  console.log('Spots', editor.Canvas.getSpots());
 });
 ```
 
-* `canvas:spot:add` New canvas spot added.
+- `canvas:spot:add` New canvas spot added.
 
 ```javascript
 editor.on('canvas:spot:add', ({ spot }) => {
- console.log('Spot added', spot);
+  console.log('Spot added', spot);
 });
 ```
 
-* `canvas:spot:update` Canvas spot updated.
+- `canvas:spot:update` Canvas spot updated.
 
 ```javascript
 editor.on('canvas:spot:update', ({ spot }) => {
- console.log('Spot updated', spot);
+  console.log('Spot updated', spot);
 });
 ```
 
-* `canvas:spot:remove` Canvas spot removed.
+- `canvas:spot:remove` Canvas spot removed.
 
 ```javascript
 editor.on('canvas:spot:remove', ({ spot }) => {
- console.log('Spot removed', spot);
+  console.log('Spot removed', spot);
 });
 ```
 
-* `canvas:coords` Canvas coordinates updated.
+- `canvas:coords` Canvas coordinates updated.
 
 ```javascript
 editor.on('canvas:coords', () => {
- console.log('Canvas coordinates updated:', editor.Canvas.getCoords());
+  console.log('Canvas coordinates updated:', editor.Canvas.getCoords());
 });
 ```
 
-* `canvas:zoom` Canvas zoom updated.
+- `canvas:zoom` Canvas zoom updated.
 
 ```javascript
 editor.on('canvas:zoom', () => {
- console.log('Canvas zoom updated:', editor.Canvas.getZoom());
+  console.log('Canvas zoom updated:', editor.Canvas.getZoom());
 });
 ```
 
-* `canvas:pointer` Canvas pointer updated.
+- `canvas:pointer` Canvas pointer updated.
 
 ```javascript
 editor.on('canvas:pointer', () => {
- console.log('Canvas pointer updated:', editor.Canvas.getPointer());
+  console.log('Canvas pointer updated:', editor.Canvas.getPointer());
 });
 ```
 
 `canvas:refresh` Canvas was refreshed to update elements on top,
 like spots/tools (eg. via `editor.Canvas.refresh()` or on frame resize).
---------------------------------------------------------------------------
+
+---
 
 ```javascript
 editor.on('canvas:refresh', (canvasRefreshOptions) => {
- console.log('Canvas refreshed with options:', canvasRefreshOptions);
+  console.log('Canvas refreshed with options:', canvasRefreshOptions);
 });
 ```
 
 `canvas:frame:load` Frame loaded in canvas.
 The event is triggered right after iframe's `onload`.
--------------------------------------------------------
+
+---
 
 ```javascript
 editor.on('canvas:frame:load', ({ window }) => {
- console.log('Frame loaded', window);
+  console.log('Frame loaded', window);
 });
 ```
 
 `canvas:frame:load:head` Frame head loaded in canvas.
 The event is triggered right after iframe's finished to load the head elemenets (eg. scripts)
----------------------------------------------------------------------------------------------
+
+---
 
 ```javascript
 editor.on('canvas:frame:load:head', ({ window }) => {
- console.log('Frame head loaded', window);
+  console.log('Frame head loaded', window);
 });
 ```
 
 `canvas:frame:load:body` Frame body loaded in canvas.
 The event is triggered when the body is rendered with components.
------------------------------------------------------------------
+
+---
 
 ```javascript
 editor.on('canvas:frame:load:body', ({ window }) => {
- console.log('Frame completed the body render', window);
+  console.log('Frame completed the body render', window);
 });
 ```
 
 [Component]: component.html
-
 [Frame]: frame.html
-
 [CanvasSpot]: canvas_spot.html
 
 ## getConfig
@@ -180,13 +184,13 @@ Set custom badge naming strategy
 
 ### Parameters
 
-*   `f` **[Function][7]**&#x20;
+- `f` **[Function][7]**&#x20;
 
 ### Examples
 
 ```javascript
-canvas.setCustomBadgeLabel(function(component){
- return component.getName();
+canvas.setCustomBadgeLabel(function (component) {
+  return component.getName();
 });
 ```
 
@@ -211,10 +215,10 @@ passed to it. For instance, you can scroll smoothly by using
 
 ### Parameters
 
-*   `el` **([HTMLElement][3] | [Component])**&#x20;
-*   `opts` **[Object][2]** Options, same as options for `scrollIntoView` (optional, default `{}`)
+- `el` **([HTMLElement][3] | [Component])**&#x20;
+- `opts` **[Object][2]** Options, same as options for `scrollIntoView` (optional, default `{}`)
 
-    *   `opts.force` **[Boolean][8]** Force the scroll, even if the element is already visible (optional, default `false`)
+  - `opts.force` **[Boolean][8]** Force the scroll, even if the element is already visible (optional, default `false`)
 
 ### Examples
 
@@ -232,7 +236,7 @@ Set canvas zoom value
 
 ### Parameters
 
-*   `value` **[Number][9]** The zoom value, from 0 to 100
+- `value` **[Number][9]** The zoom value, from 0 to 100
 
 ### Examples
 
@@ -261,9 +265,9 @@ Set canvas position coordinates
 
 ### Parameters
 
-*   `x` **[Number][9]** Horizontal position
-*   `y` **[Number][9]** Vertical position
-*   `opts` **ToWorldOption**  (optional, default `{}`)
+- `x` **[Number][9]** Horizontal position
+- `y` **[Number][9]** Vertical position
+- `opts` **ToWorldOption** (optional, default `{}`)
 
 ### Examples
 
@@ -299,27 +303,27 @@ Add or update canvas spot.
 
 ### Parameters
 
-*   `props` **[Object][2]** Canvas spot properties.
-*   `opts` **AddOptions**  (optional, default `{}`)
+- `props` **[Object][2]** Canvas spot properties.
+- `opts` **AddOptions** (optional, default `{}`)
 
 ### Examples
 
 ```javascript
 // Add new canvas spot
 const spot = canvas.addSpot({
- type: 'select', // 'select' is one of the built-in spots
- component: editor.getSelected(),
+  type: 'select', // 'select' is one of the built-in spots
+  component: editor.getSelected(),
 });
 
 // Add custom canvas spot
 const spot = canvas.addSpot({
- type: 'my-custom-spot',
- component: editor.getSelected(),
+  type: 'my-custom-spot',
+  component: editor.getSelected(),
 });
 // Update the same spot by reusing its ID
 canvas.addSpot({
- id: spot.id,
- component: anotherComponent,
+  id: spot.id,
+  component: anotherComponent,
 });
 ```
 
@@ -331,7 +335,7 @@ Get canvas spots.
 
 ### Parameters
 
-*   `spotProps` **[Object][2]?** Canvas spot properties for filtering the result. With no properties, all available spots will be returned. (optional, default `{}`)
+- `spotProps` **[Object][2]?** Canvas spot properties for filtering the result. With no properties, all available spots will be returned. (optional, default `{}`)
 
 ### Examples
 
@@ -357,7 +361,7 @@ Remove canvas spots.
 
 ### Parameters
 
-*   `spotProps` **([Object][2] | [Array][11]<[CanvasSpot]>)?** Canvas spot properties for filtering spots to remove or an array of spots to remove. With no properties, all available spots will be removed. (optional, default `{}`)
+- `spotProps` **([Object][2] | [Array][11]<[CanvasSpot]>)?** Canvas spot properties for filtering spots to remove or an array of spots to remove. With no properties, all available spots will be removed. (optional, default `{}`)
 
 ### Examples
 
@@ -370,7 +374,7 @@ canvas.addSpot({ type: 'target', component: cmp3 });
 canvas.removeSpots({ type: 'select' });
 
 // Remove spots by an array of canvas spots
-const filteredSpots = canvas.getSpots().filter(spot => myCustomCondition);
+const filteredSpots = canvas.getSpots().filter((spot) => myCustomCondition);
 canvas.removeSpots(filteredSpots);
 
 // Remove all spots
@@ -385,17 +389,17 @@ Check if the built-in canvas spot has a declared custom rendering.
 
 ### Parameters
 
-*   `type` **[String][12]** Built-in canvas spot type
+- `type` **[String][12]** Built-in canvas spot type
 
 ### Examples
 
 ```javascript
 grapesjs.init({
- // ...
- canvas: {
-   // avoid rendering the built-in 'target' canvas spot
-   customSpots: { target: true }
- }
+  // ...
+  canvas: {
+    // avoid rendering the built-in 'target' canvas spot
+    customSpots: { target: true },
+  },
 });
 // ...
 canvas.hasCustomSpot('select'); // false
@@ -410,7 +414,7 @@ Transform a box rect from the world coordinate system to the screen one.
 
 ### Parameters
 
-*   `boxRect` **[Object][2]**&#x20;
+- `boxRect` **[Object][2]**&#x20;
 
 Returns **[Object][2]**&#x20;
 
@@ -420,30 +424,19 @@ Update canvas for spots/tools positioning.
 
 ### Parameters
 
-*   `opts` **[Object][2]?** Options. (optional, default `{}`)
+- `opts` **[Object][2]?** Options. (optional, default `{}`)
 
-    *   `opts.spots` **[Object][2]** Update the position of spots. (optional, default `false`)
+  - `opts.spots` **[Object][2]** Update the position of spots. (optional, default `false`)
 
 [1]: https://github.com/GrapesJS/grapesjs/blob/master/src/canvas/config/config.ts
-
 [2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-
 [3]: https://developer.mozilla.org/docs/Web/HTML/Element
-
 [4]: https://developer.mozilla.org/docs/Web/API/HTMLIFrameElement
-
 [5]: https://developer.mozilla.org/docs/Web/API/Window
-
 [6]: https://developer.mozilla.org/docs/Web/HTML/Element/body
-
 [7]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
-
 [8]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
-
 [9]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
-
 [10]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined
-
 [11]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
-
 [12]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String

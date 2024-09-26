@@ -6,10 +6,10 @@ You can customize the initial state of the module from the editor initialization
 
 ```js
 const editor = grapesjs.init({
- assetManager: {
-   // options
- }
-})
+  assetManager: {
+    // options
+  },
+});
 ```
 
 Once the editor is instantiated you can use its API. Before using these methods you should get the module from the instance
@@ -19,67 +19,68 @@ const assetManager = editor.AssetManager;
 ```
 
 ## Available Events
-* `asset:add` New asset added to the collection. The [Asset] is passed as an argument to the callback.
+
+- `asset:add` New asset added to the collection. The [Asset] is passed as an argument to the callback.
 
 ```javascript
 editor.on('asset:add', (asset) => { ... });
 ```
 
-* `asset:remove` Asset removed from the collection. The [Asset] is passed as an argument to the callback.
+- `asset:remove` Asset removed from the collection. The [Asset] is passed as an argument to the callback.
 
 ```javascript
 editor.on('asset:remove', (asset) => { ... });
 ```
 
-* `asset:update` Asset updated. The [Asset] and the object containing changes are passed as arguments to the callback.
+- `asset:update` Asset updated. The [Asset] and the object containing changes are passed as arguments to the callback.
 
 ```javascript
 editor.on('asset:update', (asset, updatedProps) => { ... });
 ```
 
-* `asset:open` Asset Manager opened.
+- `asset:open` Asset Manager opened.
 
 ```javascript
 editor.on('asset:open', () => { ... });
 ```
 
-* `asset:close` Asset Manager closed.
+- `asset:close` Asset Manager closed.
 
 ```javascript
 editor.on('asset:close', () => { ... });
 ```
 
-* `asset:upload:start` Asset upload start.
+- `asset:upload:start` Asset upload start.
 
 ```javascript
 editor.on('asset:upload:start', () => { ... });
 ```
 
-* `asset:upload:end` Asset upload end.
+- `asset:upload:end` Asset upload end.
 
 ```javascript
 editor.on('asset:upload:end', (result) => { ... });
 ```
 
-* `asset:upload:error` Asset upload error.
+- `asset:upload:error` Asset upload error.
 
 ```javascript
 editor.on('asset:upload:error', (error) => { ... });
 ```
 
-* `asset:upload:response` Asset upload response.
+- `asset:upload:response` Asset upload response.
 
 ```javascript
 editor.on('asset:upload:response', (res) => { ... });
 ```
 
-* `asset:custom` Event to use in case of [custom Asset Manager UI](https\://grapesjs.com/docs/modules/Assets.html#customization).
+- `asset:custom` Event to use in case of [custom Asset Manager UI](https://grapesjs.com/docs/modules/Assets.html#customization).
 
 ```javascript
 editor.on('asset:custom', ({ container, assets, ... }) => { ... });
 ```
 
-* `asset` Catch-all event for all the events mentioned above. An object containing all the available data about the triggered event is passed as an argument to the callback.
+- `asset` Catch-all event for all the events mentioned above. An object containing all the available data about the triggered event is passed as an argument to the callback.
 
 ```javascript
 editor.on('asset', ({ event, model, ... }) => { ... });
@@ -87,15 +88,15 @@ editor.on('asset', ({ event, model, ... }) => { ... });
 
 ## Methods
 
-*   [open][2]
-*   [close][3]
-*   [isOpen][4]
-*   [add][5]
-*   [get][6]
-*   [getAll][7]
-*   [getAllVisible][8]
-*   [remove][9]
-*   [getContainer][10]
+- [open][2]
+- [close][3]
+- [isOpen][4]
+- [add][5]
+- [get][6]
+- [getAll][7]
+- [getAllVisible][8]
+- [remove][9]
+- [getContainer][10]
 
 [Asset]: asset.html
 
@@ -105,10 +106,10 @@ Open the asset manager.
 
 ### Parameters
 
-*   `options` **[Object][11]?** Options for the asset manager. (optional, default `{}`)
+- `options` **[Object][11]?** Options for the asset manager. (optional, default `{}`)
 
-    *   `options.types` **[Array][12]<[String][13]>** Types of assets to show. (optional, default `['image']`)
-    *   `options.select` **[Function][14]?** Type of operation to perform on asset selection. If not specified, nothing will happen.
+  - `options.types` **[Array][12]<[String][13]>** Types of assets to show. (optional, default `['image']`)
+  - `options.select` **[Function][14]?** Type of operation to perform on asset selection. If not specified, nothing will happen.
 
 ### Examples
 
@@ -156,8 +157,8 @@ Add new asset/s to the collection. URLs are supposed to be unique
 
 ### Parameters
 
-*   `asset` **([String][13] | [Object][11] | [Array][12]<[String][13]> | [Array][12]<[Object][11]>)** URL strings or an objects representing the resource.
-*   `opts` **[Object][11]?** Options (optional, default `{}`)
+- `asset` **([String][13] | [Object][11] | [Array][12]<[String][13]> | [Array][12]<[Object][11]>)** URL strings or an objects representing the resource.
+- `opts` **[Object][11]?** Options (optional, default `{}`)
 
 ### Examples
 
@@ -168,10 +169,10 @@ assetManager.add(['http://img.jpg', './path/to/img.png']);
 
 // Using objects you can indicate the type and other meta informations
 assetManager.add({
- // type: 'image',	// image is default
-	src: 'http://img.jpg',
-	height: 300,
-width: 200,
+  // type: 'image',	// image is default
+  src: 'http://img.jpg',
+  height: 300,
+  width: 200,
 });
 assetManager.add([{ src: 'img2.jpg' }, { src: 'img2.png' }]);
 ```
@@ -184,7 +185,7 @@ Return asset by URL
 
 ### Parameters
 
-*   `src` **[String][13]** URL of the asset
+- `src` **[String][13]** URL of the asset
 
 ### Examples
 
@@ -212,8 +213,8 @@ Remove asset
 
 ### Parameters
 
-*   `asset` **([String][13] | [Asset])** Asset or asset URL
-*   `opts` **RemoveOptions?**&#x20;
+- `asset` **([String][13] | [Asset])** Asset or asset URL
+- `opts` **RemoveOptions?**&#x20;
 
 ### Examples
 
@@ -233,33 +234,18 @@ Return the Asset Manager Container
 Returns **[HTMLElement][16]**&#x20;
 
 [1]: https://github.com/GrapesJS/grapesjs/blob/master/src/asset_manager/config/config.ts
-
 [2]: #open
-
 [3]: #close
-
 [4]: #isopen
-
 [5]: #add
-
 [6]: #get
-
 [7]: #getall
-
 [8]: #getallvisible
-
 [9]: #remove
-
 [10]: #getcontainer
-
 [11]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-
 [12]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
-
 [13]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
 [14]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
-
 [15]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
-
 [16]: https://developer.mozilla.org/docs/Web/HTML/Element

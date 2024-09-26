@@ -6,10 +6,10 @@ You can customize the initial state of the module from the editor initialization
 
 ```js
 const editor = grapesjs.init({
- deviceManager: {
-   // options
- }
-})
+  deviceManager: {
+    // options
+  },
+});
 ```
 
 Once the editor is instantiated you can use its API. Before using these methods you should get the module from the instance
@@ -20,20 +20,20 @@ const deviceManager = editor.Devices;
 
 ## Available Events
 
-*   `device:add` - Added new device. The [Device] is passed as an argument to the callback
-*   `device:remove` - Device removed. The [Device] is passed as an argument to the callback
-*   `device:select` - New device selected. The newly selected [Device] and the previous one, are passed as arguments to the callback
-*   `device:update` - Device updated. The updated [Device] and the object containing changes are passed as arguments to the callback
-*   `device` - Catch-all event for all the events mentioned above. An object containing all the available data about the triggered event is passed as an argument to the callback
+- `device:add` - Added new device. The [Device] is passed as an argument to the callback
+- `device:remove` - Device removed. The [Device] is passed as an argument to the callback
+- `device:select` - New device selected. The newly selected [Device] and the previous one, are passed as arguments to the callback
+- `device:update` - Device updated. The updated [Device] and the object containing changes are passed as arguments to the callback
+- `device` - Catch-all event for all the events mentioned above. An object containing all the available data about the triggered event is passed as an argument to the callback
 
 ## Methods
 
-*   [add][2]
-*   [get][3]
-*   [getDevices][4]
-*   [remove][5]
-*   [select][6]
-*   [getSelected][7]
+- [add][2]
+- [get][3]
+- [getDevices][4]
+- [remove][5]
+- [select][6]
+- [getSelected][7]
 
 [Device]: device.html
 
@@ -43,24 +43,24 @@ Add new device
 
 ### Parameters
 
-*   `props` **[Object][8]** Device properties
-*   `options` **Record<[string][9], any>**  (optional, default `{}`)
+- `props` **[Object][8]** Device properties
+- `options` **Record<[string][9], any>** (optional, default `{}`)
 
 ### Examples
 
 ```javascript
 const device1 = deviceManager.add({
- // Without an explicit ID, the `name` will be taken. In case of missing `name`, a random ID will be created.
- id: 'tablet',
- name: 'Tablet',
- width: '900px', // This width will be applied on the canvas frame and for the CSS media
+  // Without an explicit ID, the `name` will be taken. In case of missing `name`, a random ID will be created.
+  id: 'tablet',
+  name: 'Tablet',
+  width: '900px', // This width will be applied on the canvas frame and for the CSS media
 });
 const device2 = deviceManager.add({
- id: 'tablet2',
- name: 'Tablet 2',
- width: '800px', // This width will be applied on the canvas frame
- widthMedia: '810px', // This width that will be used for the CSS media
- height: '600px', // Height will be applied on the canvas frame
+  id: 'tablet2',
+  name: 'Tablet 2',
+  width: '800px', // This width will be applied on the canvas frame
+  widthMedia: '810px', // This width that will be used for the CSS media
+  height: '600px', // Height will be applied on the canvas frame
 });
 ```
 
@@ -72,7 +72,7 @@ Return device by ID
 
 ### Parameters
 
-*   `id` **[String][9]** ID of the device
+- `id` **[String][9]** ID of the device
 
 ### Examples
 
@@ -90,8 +90,8 @@ Remove device
 
 ### Parameters
 
-*   `device` **([String][9] | [Device])** Device or device id
-*   `opts`   (optional, default `{}`)
+- `device` **([String][9] | [Device])** Device or device id
+- `opts` (optional, default `{}`)
 
 ### Examples
 
@@ -124,8 +124,8 @@ Change the selected device. This will update the frame in the canvas
 
 ### Parameters
 
-*   `device` **([String][9] | [Device])** Device or device id
-*   `opts`   (optional, default `{}`)
+- `device` **([String][9] | [Device])** Device or device id
+- `opts` (optional, default `{}`)
 
 ### Examples
 
@@ -149,21 +149,12 @@ const selected = deviceManager.getSelected();
 Returns **[Device]**&#x20;
 
 [1]: https://github.com/GrapesJS/grapesjs/blob/master/src/device_manager/config/config.ts
-
 [2]: #add
-
 [3]: #get
-
 [4]: #getdevices
-
 [5]: #remove
-
 [6]: #select
-
 [7]: #getselected
-
 [8]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-
 [9]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
 [10]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array

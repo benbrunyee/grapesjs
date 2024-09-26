@@ -2,20 +2,18 @@
 
 ## Property
 
-
-
 ### Properties
 
-*   `id` **[String][1]** Property id, eg. `my-property-id`.
-*   `property` **[String][1]** Related CSS property name, eg. `text-align`.
-*   `default` **[String][1]** Defaul value of the property.
-*   `label` **[String][1]** Label to use in UI, eg. `Text Align`.
-*   `onChange` **[Function][2]?** Change callback.
-    ```js
-     onChange: ({ property, from, to }) => {
-       console.log(`Changed property`, property.getName(), { from, to });
-     }
-    ```
+- `id` **[String][1]** Property id, eg. `my-property-id`.
+- `property` **[String][1]** Related CSS property name, eg. `text-align`.
+- `default` **[String][1]** Defaul value of the property.
+- `label` **[String][1]** Label to use in UI, eg. `Text Align`.
+- `onChange` **[Function][2]?** Change callback.
+  ```js
+  onChange: ({ property, from, to }) => {
+    console.log(`Changed property`, property.getName(), { from, to });
+  };
+  ```
 
 ### getId
 
@@ -43,9 +41,9 @@ Get property label.
 
 #### Parameters
 
-*   `opts` **[Object][3]** Options (optional, default `{}`)
+- `opts` **[Object][3]** Options (optional, default `{}`)
 
-    *   `opts.locale` **[Boolean][4]** Use the locale string from i18n module (optional, default `true`)
+  - `opts.locale` **[Boolean][4]** Use the locale string from i18n module (optional, default `true`)
 
 Returns **[String][1]**&#x20;
 
@@ -55,9 +53,9 @@ Get property value.
 
 #### Parameters
 
-*   `opts` **[Object][3]** Options (optional, default `{}`)
+- `opts` **[Object][3]** Options (optional, default `{}`)
 
-    *   `opts.noDefault` **[Boolean][4]** Avoid returning the default value (optional, default `false`)
+  - `opts.noDefault` **[Boolean][4]** Avoid returning the default value (optional, default `false`)
 
 Returns **[String][1]**&#x20;
 
@@ -67,9 +65,9 @@ Check if the property has value.
 
 #### Parameters
 
-*   `opts` **[Object][3]** Options (optional, default `{}`)
+- `opts` **[Object][3]** Options (optional, default `{}`)
 
-    *   `opts.noParent` **[Boolean][4]** Ignore the value if it comes from the parent target. (optional, default `false`)
+  - `opts.noParent` **[Boolean][4]** Ignore the value if it comes from the parent target. (optional, default `false`)
 
 Returns **[Boolean][4]**&#x20;
 
@@ -85,9 +83,9 @@ Get the CSS style object of the property.
 
 #### Parameters
 
-*   `opts` **[Object][3]** Options (optional, default `{}`)
+- `opts` **[Object][3]** Options (optional, default `{}`)
 
-    *   `opts.camelCase` **[Boolean][4]?** Return property name in camelCase.
+  - `opts.camelCase` **[Boolean][4]?** Return property name in camelCase.
 
 #### Examples
 
@@ -112,11 +110,11 @@ The change is also propagated to the selected targets (eg. CSS rule).
 
 #### Parameters
 
-*   `value` **[String][1]** New value
-*   `opts` **[Object][3]** Options (optional, default `{}`)
+- `value` **[String][1]** New value
+- `opts` **[Object][3]** Options (optional, default `{}`)
 
-    *   `opts.partial` **[Boolean][4]** If `true` the update on targets won't be considered complete (not stored in UndoManager) (optional, default `false`)
-    *   `opts.noTarget` **[Boolean][4]** If `true` the change won't be propagated to selected targets. (optional, default `false`)
+  - `opts.partial` **[Boolean][4]** If `true` the update on targets won't be considered complete (not stored in UndoManager) (optional, default `false`)
+  - `opts.noTarget` **[Boolean][4]** If `true` the change won't be propagated to selected targets. (optional, default `false`)
 
 ### isVisible
 
@@ -131,9 +129,9 @@ The change is also propagated to the selected targets (eg. the css property is c
 
 #### Parameters
 
-*   `opts` **[Object][3]** Options (optional, default `{}`)
+- `opts` **[Object][3]** Options (optional, default `{}`)
 
-    *   `opts.noTarget` **[Boolean][4]** If `true` the change won't be propagated to selected targets. (optional, default `false`)
+  - `opts.noTarget` **[Boolean][4]** If `true` the change won't be propagated to selected targets. (optional, default `false`)
 
 ### canClear
 
@@ -154,11 +152,7 @@ Indicates if the property is full-width in UI.
 Returns **[Boolean][4]**&#x20;
 
 [1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
 [2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
-
 [3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-
 [4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
-
 [5]: #property

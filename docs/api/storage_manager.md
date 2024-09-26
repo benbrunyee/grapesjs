@@ -6,10 +6,10 @@ You can customize the initial state of the module from the editor initialization
 
 ```js
 const editor = grapesjs.init({
- storageManager: {
-   // options
- }
-})
+  storageManager: {
+    // options
+  },
+});
 ```
 
 Once the editor is instantiated you can use its API and listen to its events. Before using these methods, you should get the module from the instance.
@@ -24,132 +24,140 @@ storageManager.add(...);
 ```
 
 ## Available Events
-* `storage:start` Storage request start.
+
+- `storage:start` Storage request start.
 
 ```javascript
 editor.on('storage:start', (type) => {
- console.log('Storage start');
+  console.log('Storage start');
 });
 ```
 
 `storage:start:store` Storage store request start.
 The project JSON object to store is passed as an argument (which you can edit).
--------------------------------------------------------------------------------
+
+---
 
 ```javascript
 editor.on('storage:start:store', (data) => {
- console.log('Storage start store');
+  console.log('Storage start store');
 });
 ```
 
-* `storage:start:load` Storage load request start.
+- `storage:start:load` Storage load request start.
 
 ```javascript
 editor.on('storage:start:load', () => {
- console.log('Storage start load');
+  console.log('Storage start load');
 });
 ```
 
 `storage:load` Storage loaded the project.
 The loaded project is passed as an argument.
---------------------------------------------
+
+---
 
 ```javascript
 editor.on('storage:load', (data, res) => {
- console.log('Storage loaded the project');
+  console.log('Storage loaded the project');
 });
 ```
 
 `storage:store` Storage stored the project.
 The stored project is passed as an argument.
---------------------------------------------
+
+---
 
 ```javascript
 editor.on('storage:store', (data, res) => {
- console.log('Storage stored the project');
+  console.log('Storage stored the project');
 });
 ```
 
 `storage:after` Storage request completed.
 Triggered right after `storage:load`/`storage:store`.
----------------------------------------------------------
+
+---
 
 ```javascript
 editor.on('storage:after', (type) => {
- console.log('Storage request completed');
+  console.log('Storage request completed');
 });
 ```
 
 `storage:end` Storage request ended.
 This event triggers also in case of errors.
--------------------------------------------
+
+---
 
 ```javascript
 editor.on('storage:end', (type) => {
- console.log('Storage request ended');
+  console.log('Storage request ended');
 });
 ```
 
 `storage:end:store` Storage store request ended.
 This event triggers also in case of errors.
--------------------------------------------
+
+---
 
 ```javascript
 editor.on('storage:end:store', () => {
- console.log('Storage store request ended');
+  console.log('Storage store request ended');
 });
 ```
 
 `storage:end:load` Storage load request ended.
 This event triggers also in case of errors.
--------------------------------------------
+
+---
 
 ```javascript
 editor.on('storage:end:load', () => {
- console.log('Storage load request ended');
+  console.log('Storage load request ended');
 });
 ```
 
-* `storage:error` Error on storage request.
+- `storage:error` Error on storage request.
 
 ```javascript
 editor.on('storage:error', (err, type) => {
- console.log('Storage error');
+  console.log('Storage error');
 });
 ```
 
-* `storage:error:store` Error on store request.
+- `storage:error:store` Error on store request.
 
 ```javascript
 editor.on('storage:error:store', (err) => {
- console.log('Error on store');
+  console.log('Error on store');
 });
 ```
 
-* `storage:error:load` Error on load request.
+- `storage:error:load` Error on load request.
 
 ```javascript
 editor.on('storage:error:load', (err) => {
- console.log('Error on load');
+  console.log('Error on load');
 });
 ```
 
 ## Methods
 
-*   [getConfig][2]
-*   [isAutosave][3]
-*   [setAutosave][4]
-*   [getStepsBeforeSave][5]
-*   [setStepsBeforeSave][6]
-*   [getStorages][7]
-*   [getCurrent][8]
-*   [getCurrentStorage][9]
-*   [setCurrent][10]
-*   [getStorageOptions][11]
-*   [add][12]
-*   [get][13]
-*   [store][14]
-*   [load][15]
+- [getConfig][2]
+- [isAutosave][3]
+- [setAutosave][4]
+- [getStepsBeforeSave][5]
+- [setStepsBeforeSave][6]
+- [getStorages][7]
+- [getCurrent][8]
+- [getCurrentStorage][9]
+- [setCurrent][10]
+- [getStorageOptions][11]
+- [add][12]
+- [get][13]
+- [store][14]
+- [load][15]
 
 ## getConfig
 
@@ -169,7 +177,7 @@ Set autosave value.
 
 ### Parameters
 
-*   `value` **[Boolean][17]**&#x20;
+- `value` **[Boolean][17]**&#x20;
 
 ## getStepsBeforeSave
 
@@ -183,7 +191,7 @@ Set steps required before trigger autosave.
 
 ### Parameters
 
-*   `value` **[Number][18]**&#x20;
+- `value` **[Number][18]**&#x20;
 
 ## add
 
@@ -191,11 +199,11 @@ Add new storage.
 
 ### Parameters
 
-*   `type` **[String][19]** Storage type
-*   `storage` **[Object][16]** Storage definition
+- `type` **[String][19]** Storage type
+- `storage` **[Object][16]** Storage definition
 
-    *   `storage.load` **[Function][20]** Load method
-    *   `storage.store` **[Function][20]** Store method
+  - `storage.load` **[Function][20]** Load method
+  - `storage.store` **[Function][20]** Store method
 
 ### Examples
 
@@ -216,7 +224,7 @@ Return storage by type.
 
 ### Parameters
 
-*   `type` **[String][19]** Storage type
+- `type` **[String][19]** Storage type
 
 Returns **([Object][16] | null)**&#x20;
 
@@ -238,7 +246,7 @@ Set current storage type.
 
 ### Parameters
 
-*   `type` **[String][19]** Storage type
+- `type` **[String][19]** Storage type
 
 ## getStorageOptions
 
@@ -246,7 +254,7 @@ Get storage options by type.
 
 ### Parameters
 
-*   `type` **[String][19]** Storage type
+- `type` **[String][19]** Storage type
 
 Returns **[Object][16]**&#x20;
 
@@ -256,8 +264,8 @@ Store data in the current storage.
 
 ### Parameters
 
-*   `data` **[Object][16]** Project data.
-*   `options` **[Object][16]?** Storage options. (optional, default `{}as T`)
+- `data` **[Object][16]** Project data.
+- `options` **[Object][16]?** Storage options. (optional, default `{}as T`)
 
 ### Examples
 
@@ -274,7 +282,7 @@ Load resource from the current storage by keys
 
 ### Parameters
 
-*   `options` **[Object][16]?** Storage options. (optional, default `{}as T`)
+- `options` **[Object][16]?** Storage options. (optional, default `{}as T`)
 
 ### Examples
 
@@ -286,41 +294,22 @@ editor.loadProjectData(data);
 Returns **[Object][16]** Loaded data.
 
 [1]: https://github.com/GrapesJS/grapesjs/blob/master/src/storage_manager/config/config.ts
-
 [2]: #getconfig
-
 [3]: #isautosave
-
 [4]: #setautosave
-
 [5]: #getstepsbeforesave
-
 [6]: #setstepsbeforesave
-
 [7]: #getstorages
-
 [8]: #getcurrent
-
 [9]: #getcurrentstorage
-
 [10]: #setcurrent
-
 [11]: #getstorageoptions
-
 [12]: #add
-
 [13]: #get
-
 [14]: #store
-
 [15]: #load
-
 [16]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-
 [17]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
-
 [18]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
-
 [19]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
 [20]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function

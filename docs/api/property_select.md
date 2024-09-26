@@ -6,13 +6,13 @@
 
 ### Properties
 
-*   `options` **[Array][1]<[Object][2]>** Array of option definitions.
-    ```js
-    options: [
-     { id: '100', label: 'Set 100' },
-     { id: '200', label: 'Set 200' },
-    ]
-    ```
+- `options` **[Array][1]<[Object][2]>** Array of option definitions.
+  ```js
+  options: [
+    { id: '100', label: 'Set 100' },
+    { id: '200', label: 'Set 200' },
+  ];
+  ```
 
 ### getOptions
 
@@ -26,7 +26,7 @@ Get current selected option or by id.
 
 #### Parameters
 
-*   `id` **[String][3]?** Option id.
+- `id` **[String][3]?** Option id.
 
 Returns **([Object][2] | null)**&#x20;
 
@@ -36,7 +36,7 @@ Update options.
 
 #### Parameters
 
-*   `value` **[Array][1]<[Object][2]>** New array of options, eg. `[{ id: 'val-1', label: 'Value 1' }]` (optional, default `[]`)
+- `value` **[Array][1]<[Object][2]>** New array of options, eg. `[{ id: 'val-1', label: 'Value 1' }]` (optional, default `[]`)
 
 ### addOption
 
@@ -44,7 +44,7 @@ Add new option.
 
 #### Parameters
 
-*   `value` **[Object][2]** Option object, eg. `{ id: 'val-1', label: 'Value 1' }`
+- `value` **[Object][2]** Option object, eg. `{ id: 'val-1', label: 'Value 1' }`
 
 ### getOptionId
 
@@ -52,7 +52,7 @@ Get the option id from the option object.
 
 #### Parameters
 
-*   `option` **[Object][2]** Option object
+- `option` **[Object][2]** Option object
 
 Returns **[String][3]** Option id
 
@@ -62,17 +62,14 @@ Get option label.
 
 #### Parameters
 
-*   `id` **([String][3] | [Object][2])** Option id or the option object
-*   `opts` **[Object][2]** Options (optional, default `{}`)
+- `id` **([String][3] | [Object][2])** Option id or the option object
+- `opts` **[Object][2]** Options (optional, default `{}`)
 
-    *   `opts.locale` **[Boolean][4]** Use the locale string from i18n module (optional, default `true`)
+  - `opts.locale` **[Boolean][4]** Use the locale string from i18n module (optional, default `true`)
 
 Returns **[String][3]** Option label
 
 [1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
-
 [2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-
 [3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
 [4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean

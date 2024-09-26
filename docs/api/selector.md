@@ -2,16 +2,14 @@
 
 ## Selector
 
-
-
 ### Properties
 
-*   `name` **[String][1]** Selector name, eg. `my-class`
-*   `label` **[String][1]** Selector label, eg. `My Class`
-*   `type` **[Number][2]?** Type of the selector. 1 (class) | 2 (id)
-*   `active` **[Boolean][3]?** If not active, it's not selectable by the Style Manager.
-*   `private` **[Boolean][3]?** If true, it can't be seen by the Style Manager, but it will be rendered in the canvas and in export code.
-*   `protected` **[Boolean][3]?** If true, it can't be removed from the attached component.
+- `name` **[String][1]** Selector name, eg. `my-class`
+- `label` **[String][1]** Selector label, eg. `My Class`
+- `type` **[Number][2]?** Type of the selector. 1 (class) | 2 (id)
+- `active` **[Boolean][3]?** If not active, it's not selectable by the Style Manager.
+- `private` **[Boolean][3]?** If true, it can't be seen by the Style Manager, but it will be rendered in the canvas and in export code.
+- `protected` **[Boolean][3]?** If true, it can't be removed from the attached component.
 
 ### toString
 
@@ -61,13 +59,13 @@ Update selector label.
 
 #### Parameters
 
-*   `label` **[String][1]** New label
+- `label` **[String][1]** New label
 
 #### Examples
 
 ```javascript
 // Given such selector: { name: 'my-selector', label: 'My selector' }
-selector.setLabel('New Label')
+selector.setLabel('New Label');
 console.log(selector.getLabel());
 // -> `New Label`
 ```
@@ -84,10 +82,8 @@ Update selector active state.
 
 #### Parameters
 
-*   `value` **[Boolean][3]** New active state
+- `value` **[Boolean][3]** New active state
 
 [1]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
 [2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
-
 [3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean

@@ -8,9 +8,9 @@ Each `DataRecord` is associated with a `DataSource` and can trigger events when 
 
 ### DataRecord API
 
-*   [getPath][1]
-*   [getPaths][2]
-*   [set][3]
+- [getPath][1]
+- [getPaths][2]
+- [set][3]
 
 ### Example of Usage
 
@@ -22,8 +22,8 @@ record.set('name', 'newValue');
 
 ### Parameters
 
-*   `props` **DataRecordProps** Properties to initialize the data record.
-*   `opts` **[Object][4]** Options for initializing the data record.
+- `props` **DataRecordProps** Properties to initialize the data record.
+- `opts` **[Object][4]** Options for initializing the data record.
 
 ## getPath
 
@@ -33,10 +33,10 @@ Optionally, include a property name to create a more specific path.
 
 ### Parameters
 
-*   `prop` **[String][5]?** Optional property name to include in the path.
-*   `opts` **[Object][4]?** Options for path generation.
+- `prop` **[String][5]?** Optional property name to include in the path.
+- `opts` **[Object][4]?** Options for path generation.
 
-    *   `opts.useIndex` **[Boolean][6]?** Whether to use the index of the record in the path.
+  - `opts.useIndex` **[Boolean][6]?** Whether to use the index of the record in the path.
 
 ### Examples
 
@@ -56,7 +56,7 @@ Returns an array containing the paths using both ID and index.
 
 ### Parameters
 
-*   `prop` **[String][5]?** Optional property name to include in the paths.
+- `prop` **[String][5]?** Optional property name to include in the paths.
 
 ### Examples
 
@@ -74,7 +74,7 @@ Optionally, include a property name to trigger a change event for a specific pro
 
 ### Parameters
 
-*   `prop` **[String][5]?** Optional property name to trigger a change event for a specific property.
+- `prop` **[String][5]?** Optional property name to trigger a change event for a specific property.
 
 ## set
 
@@ -83,11 +83,11 @@ If transformers are defined for the record, they will be applied to the value be
 
 ### Parameters
 
-*   `attributeName` **([String][5] | [Object][4])** The name of the attribute to set, or an object of key-value pairs.
-*   `value` **any?** The value to set for the attribute.
-*   `options` **[Object][4]?** Options to apply when setting the attribute.
+- `attributeName` **([String][5] | [Object][4])** The name of the attribute to set, or an object of key-value pairs.
+- `value` **any?** The value to set for the attribute.
+- `options` **[Object][4]?** Options to apply when setting the attribute.
 
-    *   `options.avoidTransformers` **[Boolean][6]?** If true, transformers will not be applied.
+  - `options.avoidTransformers` **[Boolean][6]?** If true, transformers will not be applied.
 
 ### Examples
 
@@ -99,17 +99,10 @@ record.set('name', 'newValue');
 Returns **[DataRecord][8]** The instance of the DataRecord.
 
 [1]: #getpath
-
 [2]: #getpaths
-
 [3]: #set
-
 [4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-
 [5]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
 [6]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
-
 [7]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
-
 [8]: #datarecord

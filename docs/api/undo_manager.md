@@ -9,20 +9,20 @@ Once the editor is instantiated you can use its API. Before using these methods 
 const um = editor.UndoManager;
 ```
 
-*   [getConfig][1]
-*   [add][2]
-*   [remove][3]
-*   [removeAll][4]
-*   [start][5]
-*   [stop][6]
-*   [undo][7]
-*   [undoAll][8]
-*   [redo][9]
-*   [redoAll][10]
-*   [hasUndo][11]
-*   [hasRedo][12]
-*   [getStack][13]
-*   [clear][14]
+- [getConfig][1]
+- [add][2]
+- [remove][3]
+- [removeAll][4]
+- [start][5]
+- [stop][6]
+- [undo][7]
+- [undoAll][8]
+- [redo][9]
+- [redoAll][10]
+- [hasUndo][11]
+- [hasRedo][12]
+- [getStack][13]
+- [clear][14]
 
 ## getConfig
 
@@ -37,7 +37,7 @@ Note: New Components and CSSRules will be added automatically
 
 ### Parameters
 
-*   `entity` **(Model | Collection)** Entity to track
+- `entity` **(Model | Collection)** Entity to track
 
 ### Examples
 
@@ -53,7 +53,7 @@ Remove and stop tracking the entity (Model/Collection)
 
 ### Parameters
 
-*   `entity` **(Model | Collection)** Entity to remove
+- `entity` **(Model | Collection)** Entity to remove
 
 ### Examples
 
@@ -105,7 +105,7 @@ Undo last change
 
 ### Parameters
 
-*   `all`   (optional, default `true`)
+- `all` (optional, default `true`)
 
 ### Examples
 
@@ -133,7 +133,7 @@ Redo last change
 
 ### Parameters
 
-*   `all`   (optional, default `true`)
+- `all` (optional, default `true`)
 
 ### Examples
 
@@ -186,8 +186,8 @@ Note: New Components and CSSRules will be added automatically
 
 ### Parameters
 
-*   `obj` **any**&#x20;
-*   `entity` **(Model | Collection)** Entity to track
+- `obj` **any**&#x20;
+- `entity` **(Model | Collection)** Entity to track
 
 Returns **[Boolean][16]**&#x20;
 
@@ -210,13 +210,13 @@ Execute the provided callback temporarily stopping tracking changes
 
 ### Parameters
 
-*   `clb` **[Function][17]** The callback to execute with changes tracking stopped
+- `clb` **[Function][17]** The callback to execute with changes tracking stopped
 
 ### Examples
 
 ```javascript
 um.skip(() => {
- // Do stuff without tracking
+  // Do stuff without tracking
 });
 ```
 
@@ -233,35 +233,19 @@ um.clear();
 Returns **this**&#x20;
 
 [1]: #getconfig
-
 [2]: #add
-
 [3]: #remove
-
 [4]: #removeall
-
 [5]: #start
-
 [6]: #stop
-
 [7]: #undo
-
 [8]: #undoall
-
 [9]: #redo
-
 [10]: #redoall
-
 [11]: #hasundo
-
 [12]: #hasredo
-
 [13]: #getstack
-
 [14]: #clear
-
 [15]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-
 [16]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
-
 [17]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function

@@ -7,10 +7,10 @@ You can customize the initial state of the module from the editor initialization
 
 ```js
 const editor = grapesjs.init({
- cssComposer: {
-   // options
- }
-})
+  cssComposer: {
+    // options
+  },
+});
 ```
 
 Once the editor is instantiated you can use its API. Before using these methods you should get the module from the instance
@@ -19,12 +19,12 @@ Once the editor is instantiated you can use its API. Before using these methods 
 const css = editor.Css;
 ```
 
-*   [addRules][2]
-*   [setRule][3]
-*   [getRule][4]
-*   [getRules][5]
-*   [remove][6]
-*   [clear][7]
+- [addRules][2]
+- [setRule][3]
+- [getRule][4]
+- [getRules][5]
+- [remove][6]
+- [clear][7]
 
 [CssRule]: css_rule.html
 
@@ -34,14 +34,14 @@ Add CssRules via CSS string.
 
 ### Parameters
 
-*   `css` **[String][8]** CSS string of rules to add.
+- `css` **[String][8]** CSS string of rules to add.
 
 ### Examples
 
 ```javascript
 const addedRules = css.addRules('.my-cls{ color: red } @media (max-width: 992px) { .my-cls{ color: darkred } }');
 // Check rules
-console.log(addedRules.map(rule => rule.toCSS()));
+console.log(addedRules.map((rule) => rule.toCSS()));
 ```
 
 Returns **[Array][9]<[CssRule]>** Array of rules
@@ -52,28 +52,32 @@ Add/update the CssRule.
 
 ### Parameters
 
-*   `selectors` **[String][8]** Selector string, eg. `.myclass`
-*   `style` **[Object][10]** Style properties and values. If the rule exists, styles will be replaced unless `addStyles` option is used. (optional, default `{}`)
-*   `opts` **[Object][10]** Additional properties. (optional, default `{}`)
+- `selectors` **[String][8]** Selector string, eg. `.myclass`
+- `style` **[Object][10]** Style properties and values. If the rule exists, styles will be replaced unless `addStyles` option is used. (optional, default `{}`)
+- `opts` **[Object][10]** Additional properties. (optional, default `{}`)
 
-    *   `opts.atRuleType` **[String][8]** At-rule type, eg. `media`. (optional, default `''`)
-    *   `opts.atRuleParams` **[String][8]** At-rule parameters, eg. `(min-width: 500px)`. (optional, default `''`)
-    *   `opts.addStyles` **[Boolean][11]** If the rule exists already, merge passed styles instead of replacing them. (optional, default `false`)
+  - `opts.atRuleType` **[String][8]** At-rule type, eg. `media`. (optional, default `''`)
+  - `opts.atRuleParams` **[String][8]** At-rule parameters, eg. `(min-width: 500px)`. (optional, default `''`)
+  - `opts.addStyles` **[Boolean][11]** If the rule exists already, merge passed styles instead of replacing them. (optional, default `false`)
 
 ### Examples
 
 ```javascript
 // Simple class-based rule
 const rule = css.setRule('.class1.class2', { color: 'red' });
-console.log(rule.toCSS()) // output: .class1.class2 { color: red }
+console.log(rule.toCSS()); // output: .class1.class2 { color: red }
 // With state and other mixed selector
 const rule = css.setRule('.class1.class2:hover, div#myid', { color: 'red' });
 // output: .class1.class2:hover, div#myid { color: red }
 // With media
-const rule = css.setRule('.class1:hover', { color: 'red' }, {
- atRuleType: 'media',
- atRuleParams: '(min-width: 500px)',
-});
+const rule = css.setRule(
+  '.class1:hover',
+  { color: 'red' },
+  {
+    atRuleType: 'media',
+    atRuleParams: '(min-width: 500px)',
+  },
+);
 // output: `@media (min-width: 500px) { .class1:hover { color: red } }`
 
 // Update styles of existent rule
@@ -90,11 +94,11 @@ Get the CssRule.
 
 ### Parameters
 
-*   `selectors` **[String][8]** Selector string, eg. `.myclass:hover`
-*   `opts` **[Object][10]** Additional properties (optional, default `{}`)
+- `selectors` **[String][8]** Selector string, eg. `.myclass:hover`
+- `opts` **[Object][10]** Additional properties (optional, default `{}`)
 
-    *   `opts.atRuleType` **[String][8]** At-rule type, eg. `media` (optional, default `''`)
-    *   `opts.atRuleParams` **[String][8]** At-rule parameters, eg. '(min-width: 500px)' (optional, default `''`)
+  - `opts.atRuleType` **[String][8]** At-rule type, eg. `media` (optional, default `''`)
+  - `opts.atRuleParams` **[String][8]** At-rule parameters, eg. '(min-width: 500px)' (optional, default `''`)
 
 ### Examples
 
@@ -102,8 +106,8 @@ Get the CssRule.
 const rule = css.getRule('.myclass1:hover');
 const rule2 = css.getRule('.myclass1:hover, div#myid');
 const rule3 = css.getRule('.myclass1', {
- atRuleType: 'media',
- atRuleParams: '(min-width: 500px)',
+  atRuleType: 'media',
+  atRuleParams: '(min-width: 500px)',
 });
 ```
 
@@ -115,7 +119,7 @@ Get all rules or filtered by a matching selector.
 
 ### Parameters
 
-*   `selector` **[String][8]** Selector, eg. `.myclass` (optional, default `''`)
+- `selector` **[String][8]** Selector, eg. `.myclass` (optional, default `''`)
 
 ### Examples
 
@@ -123,9 +127,9 @@ Get all rules or filtered by a matching selector.
 // Take all the component specific rules
 const id = someComponent.getId();
 const rules = css.getRules(`#${id}`);
-console.log(rules.map(rule => rule.toCSS()))
+console.log(rules.map((rule) => rule.toCSS()));
 // All rules in the project
-console.log(css.getRules())
+console.log(css.getRules());
 ```
 
 Returns **[Array][9]<[CssRule]>**&#x20;
@@ -136,8 +140,8 @@ Remove rule, by CssRule or matching selector (eg. the selector will match also a
 
 ### Parameters
 
-*   `rule` **([String][8] | [CssRule] | [Array][9]<[CssRule]>)** CssRule or matching selector.
-*   `opts` **any?**&#x20;
+- `rule` **([String][8] | [CssRule] | [Array][9]<[CssRule]>)** CssRule or matching selector.
+- `opts` **any?**&#x20;
 
 ### Examples
 
@@ -157,28 +161,18 @@ Remove all rules
 
 ### Parameters
 
-*   `opts`   (optional, default `{}`)
+- `opts` (optional, default `{}`)
 
 Returns **this**&#x20;
 
 [1]: https://github.com/GrapesJS/grapesjs/blob/master/src/css_composer/config/config.ts
-
 [2]: #addrules
-
 [3]: #setrule
-
 [4]: #getrule
-
 [5]: #getrules
-
 [6]: #remove
-
 [7]: #clear
-
 [8]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
 [9]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
-
 [10]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-
 [11]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean

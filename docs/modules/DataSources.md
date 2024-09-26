@@ -182,9 +182,7 @@ editor.DataSources.add(persistentDataSource);
 
 const temporaryDataSource = {
   id: 'temporary-datasource',
-  records: [
-    { id: 'id1', content: 'This data will not be saved' },
-  ],
+  records: [{ id: 'id1', content: 'This data will not be saved' }],
   skipFromStorage: true,
 };
 
