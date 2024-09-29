@@ -2,9 +2,9 @@ import { bindAll, debounce, isString, isUndefined } from 'underscore';
 import { ModuleView } from '../../abstract';
 import { BoxRect, ObjectAny } from '../../common';
 import CssRulesView from '../../css_composer/view/CssRulesView';
-import ComponentWrapperView from '../../dom_components/view/ComponentWrapperView';
-import ComponentView from '../../dom_components/view/ComponentView';
 import { type as typeHead } from '../../dom_components/model/ComponentHead';
+import ComponentView from '../../dom_components/view/ComponentView';
+import ComponentWrapperView from '../../dom_components/view/ComponentWrapperView';
 import Droppable from '../../utils/Droppable';
 import {
   append,
@@ -19,8 +19,8 @@ import {
 import { hasDnd, setViewEl } from '../../utils/mixins';
 import Canvas from '../model/Canvas';
 import Frame from '../model/Frame';
-import FrameWrapView from './FrameWrapView';
 import CanvasEvents from '../types';
+import FrameWrapView from './FrameWrapView';
 
 export default class FrameView extends ModuleView<Frame, HTMLIFrameElement> {
   /** @ts-ignore */
@@ -407,6 +407,10 @@ export default class FrameView extends ModuleView<Frame, HTMLIFrameElement> {
       ${conf.baseCss || config.frameStyle || ''}
 
       ${hasAutoHeight ? 'body { overflow: hidden }' : ''}
+
+      html, body {
+        overflow: hidden;
+      }
 
       [data-gjs-type="wrapper"] {
         ${!hasAutoHeight ? 'min-height: 100vh;' : ''}
