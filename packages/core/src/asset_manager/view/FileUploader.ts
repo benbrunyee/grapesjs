@@ -139,8 +139,7 @@ export default class FileUploaderView extends View {
    * @private
    * */
   uploadFile(e: DragEvent, clb?: () => void) {
-    // @ts-ignore
-    const files = e.dataTransfer ? e.dataTransfer.files : e.target.files;
+    const files = e.dataTransfer ? e.dataTransfer.files : ((e.target as any).files as FileList);
     const { config } = this;
     const { beforeUpload } = config;
 
