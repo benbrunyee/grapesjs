@@ -72,7 +72,7 @@ export interface AssetManagerConfig {
    * @example
    * customFetch: (url, options) => axios(url, { data: options.body }),
    */
-  customFetch?: (url: string, options: Record<string, any>) => Promise<string>;
+  customFetch?: (url: string, options: Record<string, any>) => Promise<string | Object>;
   /**
    * Custom uploadFile function.
    * Differently from the `customFetch` option, this gives a total control over the uploading process, but you also have to emit all `asset:upload:*` events b
