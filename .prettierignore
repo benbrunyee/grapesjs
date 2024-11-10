@@ -3,4 +3,3 @@ dist/
 packages/cli/src/template/**/*.*
 **/locale/**
 stats.json
-yarn.lock

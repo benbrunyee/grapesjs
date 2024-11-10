@@ -1,16 +1,16 @@
 {
   "name": "@grapesjs/monorepo",
   "version": "0.0.0",
-  "packageManager": "yarn@4.5.1",
+  "packageManager": "pnpm@9.10.0",
   "scripts": {
-    "start": "yarn workspace grapesjs run start",
-    "test": "yarn -r run test",
-    "docs": "yarn workspace docs run docs",
-    "docs:api": "yarn workspace docs docs:run api",
+    "start": "pnpm --filter grapesjs start",
+    "test": "pnpm -r run test",
+    "docs": "pnpm --filter @grapesjs/docs docs",
+    "docs:api": "pnpm --filter @grapesjs/docs docs:api",
     "lint": "eslint .",
-    "build": "yarn workspaces foreach -R --from '{grapesjs,grapesjs-cli}' run build",
-    "ts:check": "yarn workspace grapesjs ts:run check",
-    "clean": "find . -type d \\( -name \"node_modules\" -o -name \"build\" -o -name \"dist\" \\) -exec rm -rf {} + && rm ./yarn.lock",
+    "build": "pnpm --filter \"!@grapesjs/docs\" build",
+    "ts:check": "pnpm --filter grapesjs ts:check",
+    "clean": "find . -type d \\( -name \"node_modules\" -o -name \"build\" -o -name \"dist\" \\) -exec rm -rf {} + && rm ./pnpm-lock.yaml",
     "format": "prettier . --write --ignore-path .prettierignore",
     "format:check": "prettier . --check --ignore-path .prettierignore"
   },
@@ -20,14 +20,14 @@
     "@babel/preset-env": "7.25.4",
     "@babel/preset-typescript": "7.24.7",
     "@babel/runtime": "7.25.6",
+    "babel-loader": "9.1.3",
     "@jest/globals": "29.7.0",
     "@types/jest": "29.5.12",
     "@types/node": "22.4.1",
     "@types/underscore": "^1.11.15",
     "@typescript-eslint/eslint-plugin": "8.1.0",
     "@typescript-eslint/parser": "8.0.1",
-    "babel-loader": "9.1.3",
-    "cross-env": "^7.0.3",
+    "cross-env": "7.0.3",
     "css-loader": "7.1.2",
     "dotenv": "16.4.5",
     "eslint": "8.57.0",
@@ -44,15 +44,27 @@
     "ts-jest": "29.2.4",
     "ts-loader": "9.5.1",
     "ts-node": "10.9.2",
-    "typescript": "5.5.4",
-    "webpack": "^5.96.1"
+    "typescript": "5.5.4"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@babel/*",
+        "typescript",
+        "ts-node",
+        "@tsconfig/*",
+        "@types/*",
+        "jest",
+        "@jest/*",
+        "supertest",
+        "prettier",
+        "webpack",
+        "grapesjs-cli"
+      ]
+    }
   },
   "engines": {
     "node": ">=20",
-    "yarn": ">=4.5.1"
-  },
-  "workspaces": [
-    "packages/*",
-    "docs"
-  ]
+    "pnpm": ">=9"
+  }
 }

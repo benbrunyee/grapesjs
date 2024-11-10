@@ -2,7 +2,9 @@
   "name": "grapesjs-cli",
   "version": "4.1.3",
   "description": "GrapesJS CLI tool for the plugin development",
-  "bin": "dist/cli.js",
+  "bin": {
+    "grapesjs-cli": "dist/cli.js"
+  },
   "files": [
     "dist"
   ],
@@ -15,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/benbrunyee/grapesjs.git"
+    "url": "https://github.com/GrapesJS/grapesjs.git"
   },
   "keywords": [
     "grapesjs",
@@ -49,7 +51,6 @@
   "devDependencies": {
     "@types/webpack-node-externals": "^3.0.0",
     "copy-webpack-plugin": "^11.0.0",
-    "cross-env": "^7.0.3",
     "fork-ts-checker-webpack-plugin": "^8.0.0",
     "webpack-node-externals": "^3.0.0"
   }
