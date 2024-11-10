@@ -7,7 +7,7 @@ Thank you for your interest in contributing to GrapesJS! We welcome all types of
 ### Prerequisites
 
 - Node.js (version 20 LTS)
-- pnpm (version 9.10.0 or later)
+- yarn (version 9.10.0 or later)
 
 ### Setup
 
@@ -18,10 +18,10 @@ Thank you for your interest in contributing to GrapesJS! We welcome all types of
    nvm use 20
    ```
 
-2. Install pnpm globally:
+2. Install yarn globally:
 
    ```bash
-   npm install -g pnpm@9.10.0
+   npm install -g yarn@9.10.0
    ```
 
 3. Clone the repository:
@@ -34,32 +34,32 @@ Thank you for your interest in contributing to GrapesJS! We welcome all types of
 4. Install dependencies:
 
    ```bash
-   pnpm install
+   yarn install
    ```
 
 5. Start the development server:
 
    ```bash
-   pnpm start
+   yarn start
    ```
 
 6. Open `http://localhost:8080/` in your browser to see the editor in action.
 
 ## Development Workflow
 
-- **Linting**: `pnpm lint`
-- **Formatting**: `pnpm format`
-- **Checking format**: `pnpm format:check`
-- **Building**: `pnpm build`
-- **Testing**: `pnpm test`
+- **Linting**: `yarn lint`
+- **Formatting**: `yarn format`
+- **Checking format**: `yarn format:check`
+- **Building**: `yarn build`
+- **Testing**: `yarn test`
 
 ### Code Style
 
 We use ESLint for linting and Prettier for code formatting. While we don't have pre-commit hooks, we strongly recommend using these tools before submitting your changes:
 
-- Run `pnpm lint` to check for linting errors.
-- Run `pnpm format` to automatically format your code.
-- Run `pnpm format:check` to check if your code is formatted correctly.
+- Run `yarn lint` to check for linting errors.
+- Run `yarn format` to automatically format your code.
+- Run `yarn format:check` to check if your code is formatted correctly.
 
 Code style is enforced at the CI level. We recommend using Prettier extensions in your editor for real-time formatting.
 
@@ -70,13 +70,13 @@ To generate and view the documentation:
 1. Generate API documentation:
 
    ```bash
-   pnpm run docs:api
+   yarn run docs:api
    ```
 
 2. Run the VuePress documentation server:
 
    ```bash
-   pnpm run docs
+   yarn run docs
    ```
 
 3. Open `http://localhost:8080/` to view the documentation.

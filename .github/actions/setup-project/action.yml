@@ -2,8 +2,8 @@ name: Setup Project
 description: 'Sets up the project by installing dependencies and building the project.'
 
 inputs:
-  pnpm-version:
-    description: 'The version of pnpm to use for installing dependencies.'
+  yarn-version:
+    description: 'The version of yarn to use for installing dependencies.'
     required: false
     default: 9.10.0
   node-version:
@@ -14,16 +14,13 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: pnpm/action-setup@v4
-      with:
-        version: ${{ inputs.pnpm-version }}
     - uses: actions/setup-node@v4
       with:
         node-version: ${{ inputs.node-version }}
-        cache: 'pnpm'
+        cache: 'yarn'
     - name: Install dependencies
-      run: pnpm install
+      run: yarn install
       shell: bash
     - name: Build project
-      run: pnpm build
+      run: yarn build
       shell: bash

@@ -4,13 +4,13 @@
   "packageManager": "yarn@4.5.1",
   "scripts": {
     "start": "yarn workspace grapesjs run start",
-    "test": "pnpm -r run test",
+    "test": "yarn -r run test",
     "docs": "yarn workspace docs run docs",
     "docs:api": "yarn workspace docs docs:run api",
     "lint": "eslint .",
     "build": "yarn workspaces foreach -R --from '{grapesjs,grapesjs-cli}' run build",
     "ts:check": "yarn workspace grapesjs ts:run check",
-    "clean": "find . -type d \\( -name \"node_modules\" -o -name \"build\" -o -name \"dist\" \\) -exec rm -rf {} + && rm ./pnpm-lock.yaml",
+    "clean": "find . -type d \\( -name \"node_modules\" -o -name \"build\" -o -name \"dist\" \\) -exec rm -rf {} + && rm ./yarn.lock",
     "format": "prettier . --write --ignore-path .prettierignore",
     "format:check": "prettier . --check --ignore-path .prettierignore"
   },
