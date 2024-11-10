@@ -22,3 +22,11 @@ grapesjs-*.tgz
 _index.html
 docs/.vuepress/dist
 dist/
+
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
