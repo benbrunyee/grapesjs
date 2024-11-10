@@ -102,7 +102,7 @@ API References could be found here: [API-Reference]
 ## Testing
 
 ```sh
-$ pnpm test
+$ yarn test
 ```
 
 ## Plugins
