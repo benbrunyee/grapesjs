@@ -81,7 +81,7 @@
     </div>
 
     <script type="text/javascript">
-      var editor = grapesjs.init({
+      var editor = window['@benbrunyee/grapesjs'].init({
         showOffsets: 1,
         noticeOnUnload: 0,
         dragMode: 'absolute',
@@ -89,6 +89,9 @@
         height: '100%',
         fromElement: true,
         storageManager: { autoload: 0 },
+        canvas: {
+          animateFrameSize: false,
+        },
         styleManager: {
           sectors: [
             {

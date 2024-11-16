@@ -3,13 +3,13 @@
   "version": "0.0.0",
   "packageManager": "pnpm@9.10.0",
   "scripts": {
-    "start": "pnpm --filter grapesjs start",
+    "start": "pnpm --filter @benbrunyee/grapesjs start",
     "test": "pnpm -r run test",
-    "docs": "pnpm --filter @grapesjs/docs docs",
-    "docs:api": "pnpm --filter @grapesjs/docs docs:api",
+    "docs": "pnpm --filter @benbrunyee/grapesjs-docs docs",
+    "docs:api": "pnpm --filter @benbrunyee/grapesjs-docs docs:api",
     "lint": "eslint .",
-    "build": "pnpm --filter \"!@grapesjs/docs\" build",
-    "ts:check": "pnpm --filter grapesjs ts:check",
+    "build": "pnpm --filter \"!@benbrunyee/grapesjs-docs\" build",
+    "ts:check": "pnpm --filter @benbrunyee/grapesjs ts:check",
     "clean": "find . -type d \\( -name \"node_modules\" -o -name \"build\" -o -name \"dist\" \\) -exec rm -rf {} + && rm ./pnpm-lock.yaml",
     "format": "prettier . --write --ignore-path .prettierignore",
     "format:check": "prettier . --check --ignore-path .prettierignore"
@@ -59,7 +59,7 @@
         "supertest",
         "prettier",
         "webpack",
-        "grapesjs-cli"
+        "@benbrunyee/grapesjs-cli"
       ]
     }
   },
