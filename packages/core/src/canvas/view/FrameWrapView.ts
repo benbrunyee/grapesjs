@@ -1,10 +1,10 @@
-import { bindAll, isNumber, isNull, debounce } from 'underscore';
+import { bindAll, debounce, isNull, isNumber } from 'underscore';
 import { ModuleView } from '../../abstract';
-import FrameView from './FrameView';
 import { createEl, removeEl } from '../../utils/dom';
 import Dragger from '../../utils/Dragger';
-import CanvasView from './CanvasView';
 import Frame from '../model/Frame';
+import CanvasView from './CanvasView';
+import FrameView from './FrameView';
 
 export default class FrameWrapView extends ModuleView<Frame> {
   events() {
@@ -84,10 +84,10 @@ export default class FrameWrapView extends ModuleView<Frame> {
   }
 
   updateOffset() {
-    const { em, $el, frame } = this;
+    const { em, $el, frame, config } = this;
     if (!em || em.destroyed) return;
     em.runDefault({ preserveSelected: 1 });
-    $el.removeClass(this.classAnim);
+    config.animateFrameSize && $el.removeClass(this.classAnim);
     frame?.model?._emitUpdated();
   }
 
@@ -110,10 +110,10 @@ export default class FrameWrapView extends ModuleView<Frame> {
    * @private
    */
   updateDim() {
-    const { em, el, $el, model, classAnim, frame } = this;
+    const { em, el, $el, model, classAnim, frame, config } = this;
     if (!frame) return;
     frame.rect = undefined;
-    $el.addClass(classAnim);
+    config.animateFrameSize && $el.addClass(classAnim);
     const { noChanges, width, height } = this.__handleSize();
 
     // Set width and height from DOM (should be done only once)

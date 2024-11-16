@@ -89,6 +89,12 @@ export interface CanvasConfig {
    * Experimental: enable infinite canvas.
    */
   infiniteCanvas?: boolean;
+
+  /**
+   * Animate the width and height changes of the FrameWrapView
+   * @default true
+   */
+  animateFrameSize?: boolean;
 }
 
 const config: CanvasConfig = {
@@ -107,6 +113,7 @@ const config: CanvasConfig = {
   `,
   notTextable: ['button', 'a', 'input[type=checkbox]', 'input[type=radio]'],
   allowExternalDrop: true,
+  animateFrameSize: true,
 };
 
 export default config;
