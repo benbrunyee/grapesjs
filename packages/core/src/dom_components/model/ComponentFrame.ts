@@ -12,7 +12,7 @@ export default class ComponentFrame extends Component {
       tagName: type,
       droppable: false,
       resizable: true,
-      traits: ['id', 'title', 'src'],
+      traits: ['title', 'src'],
       attributes: { frameborder: '0' },
     };
   }

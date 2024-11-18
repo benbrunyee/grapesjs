@@ -54,7 +54,7 @@ component.get('tagName');
 - `script` **([String][1] | [Function][4])?** Component's javascript. More about it [here][7]. Default: `''`
 - `script-export` **([String][1] | [Function][4])?** You can specify javascript available only in export functions (eg. when you get the HTML).
   If this property is defined it will overwrite the `script` one (in export functions). Default: `''`
-- `traits` **[Array][5]<([Object][2] | [String][1])>?** Component's traits. More about it [here][8]. Default: `['id', 'title']`
+- `traits` **[Array][5]<([Object][2] | [String][1])>?** Component's traits. More about it [here][8]. Default: `[]`
 - `propagate` **[Array][5]<[String][1]>?** Indicates an array of properties which will be inhereted by all NEW appended children.
   For example if you create a component likes this: `{ removable: false, draggable: false, propagate: ['removable', 'draggable'] }`
   and append some new component inside, the new added component will get the exact same properties indicated in the `propagate` array (and the `propagate` property itself). Default: `[]`

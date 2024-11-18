@@ -10,7 +10,7 @@ export default class ComponentLabel extends ComponentText {
       ...super.defaults,
       type,
       tagName: type,
-      traits: ['id', 'title', 'for'],
+      traits: ['title', 'for'],
     };
   }
 

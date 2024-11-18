@@ -120,7 +120,7 @@ export const keyUpdateInside = ComponentsEvents.updateInside;
  * @property {String|Function} [script=''] Component's javascript. More about it [here](/modules/Components-js.html). Default: `''`
  * @property {String|Function} [script-export=''] You can specify javascript available only in export functions (eg. when you get the HTML).
  * If this property is defined it will overwrite the `script` one (in export functions). Default: `''`
- * @property {Array<Object|String>} [traits=''] Component's traits. More about it [here](/modules/Traits.html). Default: `['id', 'title']`
+ * @property {Array<Object|String>} [traits=''] Component's traits. More about it [here](/modules/Traits.html). Default: `[]`
  * @property {Array<String>} [propagate=[]] Indicates an array of properties which will be inhereted by all NEW appended children.
  *  For example if you create a component likes this: `{ removable: false, draggable: false, propagate: ['removable', 'draggable'] }`
  *  and append some new component inside, the new added component will get the exact same properties indicated in the `propagate` array (and the `propagate` property itself). Default: `[]`
@@ -168,7 +168,7 @@ export default class Component extends StyleableModel<ComponentProperties> {
       'script-props': '',
       'script-export': '',
       attributes: {},
-      traits: ['id', 'title'],
+      traits: [],
       propagate: '',
       dmode: '',
       toolbar: null,
