@@ -212,7 +212,7 @@ export interface ComponentProperties {
   // */
   //script-export?: string | ((...params: any[]) => any);
   /**
-   * Component's traits. More about it [here](/modules/Traits.html). Default: `['id', 'title']`
+   * Component's traits. More about it [here](/modules/Traits.html). Default: `[]`
    * @default ''
    */
   traits?: Traits;
